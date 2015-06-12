@@ -32,3 +32,36 @@ cat suggested/.zshrc >> ~/.zshrc
 sudo apt-get install vim
 if [ -f ~/.vimrc ] ; then echo >> ~/.vimrc ; fi
 cat suggested/.vimrc >> ~/.vimrc
+
+#######
+# Git #
+#######
+
+sudo apt-get install git
+
+# add username and email
+git config --global user.name 'Franklin Yu'
+git config --global user.email franklinyu@hotmail.com
+
+# ignore the temp files created by 'gedit' or 'Emacs'
+git config --global core.excludesfile ~/.config/git/ignore
+cd ~/.config
+mkdir git
+cd git
+echo '# temporary files' > ignore # quotation marks suppress parsing pound sign
+echo '*~' >> ignore # quotation marks prevent wildcard from expansion
+
+# push local branches to the remote branches that already exist with the same name
+git config --global push.default matching
+
+# color the text (is default since 1.8.4)
+# from http://stackoverflow.com/q/10998792
+# see also https://nathanhoad.net/how-to-colours-in-git
+git config --global color.ui auto
+
+# set `less` default pager and set tab width
+# from http://stackoverflow.com/a/10584237
+git config --global core.pager 'less -x1,5'
+
+# set default editor as Vim
+git config --global core.editor vim
