@@ -1,0 +1,6 @@
+--color
+# thanks http://stackoverflow.com/a/8292088
+
+--format documentation
+# with shorthand `-fd`. See
+#     https://relishapp.com/rspec/rspec-core/docs/command-line/format-option
