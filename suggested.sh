@@ -24,3 +24,11 @@ sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gallois"/g' ~/.zshrc
 
 # alias
 cat suggested/.zshrc >> ~/.zshrc
+
+#######
+# Vim #
+#######
+
+sudo apt-get install vim
+if [ -f ~/.vimrc ] ; then echo >> ~/.vimrc ; fi
+cat suggested/.vimrc >> ~/.vimrc
