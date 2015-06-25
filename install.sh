@@ -7,5 +7,5 @@ if ! wget https://github.com/franklinyu/debian-setup/archive/master.zip -O $ZIP;
 fi
 unzip -d $FOLDER $ZIP
 rm $ZIP
-sh $FOLDER/suggested.sh
+sh $FOLDER/debian-setup-master/suggested.sh
 rm -r $FOLDER
