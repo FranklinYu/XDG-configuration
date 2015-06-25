@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd "$(dirname "$(readlink -f "$0")")"
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install curl gedit-plugins tree
