@@ -4,28 +4,6 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install curl gedit-plugins tree --assume-yes
 
-#####################
-# Zsh and Oh-My-Zsh #
-#####################
-
-# install Z-shell
-sudo apt-get install zsh zsh-doc --assume-yes
-
-# set Z-shell as default shell
-# (from http://superuser.com/a/231736 )
-USR_NAME=`id --user --name`
-chsh -s $(which zsh) $USR_NAME
-
-# install Oh-My-Zsh
-wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
-
-# set theme to gallois
-# (from https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#kolo )
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gallois"/g' ~/.zshrc
-
-# alias
-cat suggested/.zshrc >> ~/.zshrc
-
 #######
 # Vim #
 #######
@@ -66,6 +44,28 @@ git config --global core.pager 'less -x1,5'
 
 # set default editor as Vim
 git config --global core.editor vim
+
+#####################
+# Zsh and Oh-My-Zsh #
+#####################
+
+# install Z-shell
+sudo apt-get install zsh zsh-doc --assume-yes
+
+# set Z-shell as default shell
+# (from http://superuser.com/a/231736 )
+USR_NAME=`id --user --name`
+chsh -s $(which zsh) $USR_NAME
+
+# install Oh-My-Zsh (needs Git)
+wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+
+# set theme to gallois
+# (from https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#kolo )
+sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gallois"/g' ~/.zshrc
+
+# alias
+cat suggested/.zshrc >> ~/.zshrc
 
 ############################
 # RVM, Ruby, Ruby on Rails #
