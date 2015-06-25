@@ -60,10 +60,6 @@ chsh -s $(which zsh) $USR_NAME
 # install Oh-My-Zsh (needs Git)
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 
-# set theme to gallois
-# (from https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#kolo )
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gallois"/g' ~/.zshrc
-
 # alias
 cat suggested/.zshrc >> ~/.zshrc
 
