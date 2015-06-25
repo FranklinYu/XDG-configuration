@@ -2,14 +2,14 @@
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install curl gedit-plugins tree
+sudo apt-get install curl gedit-plugins tree --assume-yes
 
 #####################
 # Zsh and Oh-My-Zsh #
 #####################
 
 # install Z-shell
-sudo apt-get install zsh zsh-doc
+sudo apt-get install zsh zsh-doc --assume-yes
 
 # set Z-shell as default shell
 # (from http://superuser.com/a/231736 )
@@ -29,7 +29,7 @@ cat suggested/.zshrc >> ~/.zshrc
 # Vim #
 #######
 
-sudo apt-get install vim
+sudo apt-get install vim --assume-yes
 if [ -f ~/.vimrc ] ; then echo >> ~/.vimrc ; fi
 cat suggested/.vimrc >> ~/.vimrc
 
@@ -37,7 +37,7 @@ cat suggested/.vimrc >> ~/.vimrc
 # Git #
 #######
 
-sudo apt-get install git
+sudo apt-get install git --assume-yes
 
 # add username and email
 git config --global user.name 'Franklin Yu'
