@@ -1,7 +1,7 @@
 #!/bin/sh
 ZIP=`mktemp --suffix='.zip'`
 FOLDER=`mktemp --directory`
-if ! wget https://github.com/franklinyu/debian-setup/archive/master.zi -O $ZIP
+if ! wget https://github.com/franklinyu/debian-setup/archive/master.zip -O $ZIP
   then
   echo "\033[1;33mCannot download file from GitHub; check you Internet" \
     "connection.\033[0m"
