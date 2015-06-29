@@ -8,3 +8,6 @@ alias la='ls -A' gc='git commit' gcm='git commit -m' gca='git commit -a' \
 # set tree color (double quotes because the output of `dircolors` contains
 # single quotes)
 eval "$(dircolors -b)"
+
+# include the RVM script
+source $HOME/.rvm/scripts/rvm
