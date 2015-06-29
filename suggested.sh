@@ -32,12 +32,12 @@ git config --global user.email franklinyu@hotmail.com
 
 # ignore the temp files created by 'gedit' or 'Emacs'
 git config --global core.excludesfile ~/.config/git/ignore
-cd ~/.config
-if [ -d git ] ; then mkdir git ; fi
-cd git
-if [ -f ignore ] ; then echo >> ignore ; fi
-echo '# temporary files' >> ignore # quotation marks suppress parsing pound sign
-echo '*~' >> ignore # quotation marks prevent wildcard from expansion
+if [ -d ~/.config/git ] ; then mkdir ~/.config/git ; fi
+if [ -f ~/.config/git/ignore ] ; then echo >> ~/.config/git/ignore ; fi
+echo '# temporary files' >> ~/.config/git/ignore
+  # quotation marks suppress parsing pound sign
+echo '*~' >> ~/.config/git/ignore
+  # quotation marks prevent wildcard from expansion
 
 # push local branches to the remote branches that already exist with the same
 # name
