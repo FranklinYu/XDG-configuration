@@ -5,6 +5,6 @@ sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="eastwood"/' ~/.zshrc
 # my customization
 sed -i 's|# ZSH_CUSTOM=/path/to/new-custom-folder|ZSH_CUSTOM=~/.oh-my-zsh-custom|' ~/.zshrc
 sudo apt-get install git
-git clone https://github.com/franklinyu/oh-my-zsh-custom.git .oh-my-zsh-custom
-cd .oh-my-zsh-custom
+git clone https://github.com/franklinyu/oh-my-zsh-custom.git ~/.oh-my-zsh-custom
+cd ~/.oh-my-zsh-custom
 git checkout my-custom
