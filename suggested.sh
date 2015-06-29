@@ -3,6 +3,12 @@
 cd "$(dirname "$(readlink -f "$0")")"
 
 sudo apt-get update
+SUDO_OK=$?
+if [ SUDO_OK == 1 ] ; then
+  echo "\033[1;31m\`sudo apt-get update\` returns 1, possibly due to wrong" \
+    "password.\033[0m"
+  exit 1
+fi
 sudo apt-get upgrade
 sudo apt-get install curl gedit-plugins tree --assume-yes
 
