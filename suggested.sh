@@ -68,6 +68,9 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh \
 # alias
 cat suggested/.zshrc >> ~/.zshrc
 
+# append the path instead of replacing it
+sed -i 's|export PATH="/|export PATH="$PATH:/|' ~/.zshrc
+
 ############################
 # RVM, Ruby, Ruby on Rails #
 ############################
