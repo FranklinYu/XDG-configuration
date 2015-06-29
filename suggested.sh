@@ -59,7 +59,7 @@ sudo apt-get install zsh zsh-doc --assume-yes
 # set Z-shell as default shell
 # (from http://superuser.com/a/231736 )
 USR_NAME=`id --user --name`
-chsh --shell $(which zsh) $USR_NAME
+sudo chsh --shell $(which zsh) $USR_NAME
 
 # install Oh-My-Zsh (needs Git)
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh \
