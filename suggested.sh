@@ -26,10 +26,6 @@ cat suggested/.vimrc >> ~/.vimrc
 
 sudo apt-get install git --assume-yes
 
-# add username and email
-git config --global user.name 'Franklin Yu'
-git config --global user.email franklinyu@hotmail.com
-
 # ignore the temp files created by 'gedit' or 'Emacs'
 git config --global core.excludesfile ~/.config/git/ignore
 if ! [ -d ~/.config/git ] ; then mkdir ~/.config/git ; fi
