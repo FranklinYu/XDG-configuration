@@ -32,7 +32,7 @@ git config --global user.email franklinyu@hotmail.com
 
 # ignore the temp files created by 'gedit' or 'Emacs'
 git config --global core.excludesfile ~/.config/git/ignore
-if [ -d ~/.config/git ] ; then mkdir ~/.config/git ; fi
+if ! [ -d ~/.config/git ] ; then mkdir ~/.config/git ; fi
 if [ -f ~/.config/git/ignore ] ; then echo >> ~/.config/git/ignore ; fi
 echo '# temporary files' >> ~/.config/git/ignore
   # quotation marks suppress parsing pound sign
