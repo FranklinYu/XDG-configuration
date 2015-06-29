@@ -83,3 +83,7 @@ curl --silent --show-error --location https://get.rvm.io | bash -s stable
 # For all in one installation append `--rails` or `--ruby` or `--ruby=1.9.3`.
 # To run in command line, use `\curl` instead of `curl` to dealias.
 # Options for curl can be abbreviated as `-sSL`.
+
+# default to --simple-prompt (`~/.irbrc` is suppressed with `-f` option)
+# see http://ruby-doc.com/docs/ProgrammingRuby/html/irb.html
+echo 'IRB.conf[:PROMPT_MODE] = :SIMPLE' >> ~/.irbrc
