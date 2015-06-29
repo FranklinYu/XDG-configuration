@@ -87,3 +87,6 @@ curl --silent --show-error --location https://get.rvm.io | bash -s stable
 # default to --simple-prompt (`~/.irbrc` is suppressed with `-f` option)
 # see http://ruby-doc.com/docs/ProgrammingRuby/html/irb.html
 echo 'IRB.conf[:PROMPT_MODE] = :SIMPLE' >> ~/.irbrc
+
+# Heroku Toolbelt
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
