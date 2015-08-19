@@ -1,9 +1,9 @@
 
 # alias
-unalias la gc gca
-alias la='ls -A' gc='git commit' gcm='git commit -m' gca='git commit -a' \
-      gcam='git commit -am' gcob='git checkout -b' gap='git add --patch' \
-      gds='git diff --staged'
+unalias la gcm
+alias la='ls --almost-all' gcm='git commit --verbose -m' \
+      gcam='git commit --all --verbose -m' gcob='git checkout -b' \
+      gap='git add --patch' gds='git diff --staged'
 
 # set tree color (double quotes because the output of `dircolors` contains
 # single quotes)
