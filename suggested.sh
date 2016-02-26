@@ -46,7 +46,7 @@ git config --global color.ui auto
 
 # set `less` default pager and set tab width
 # from http://stackoverflow.com/a/10584237
-git config --global core.pager 'less -x1,5'
+git config --global core.pager 'less --tabs=1,5'
 
 # set default editor as Vim
 git config --global core.editor vim
