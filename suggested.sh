@@ -93,5 +93,8 @@ wget --output-document=- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # Sublime Text 3
 sudo add-apt-repository --yes ppa:webupd8team/sublime-text-3
+codename=`lsb_release --codename --short`
+sudo sed --in-place=.save 's/$/ #Sublime Text 3/' \
+  /etc/apt/sources.list.d/webupd8team-sublime-text-3-$codename.list
 sudo apt-get update
 sudo apt-get install sublime-text-installer
