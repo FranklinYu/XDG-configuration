@@ -90,3 +90,8 @@ echo 'IRB.conf[:PROMPT_MODE] = :SIMPLE' >> ~/.irbrc
 
 # Heroku Toolbelt
 wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# Sublime Text 3
+sudo add-apt-repository --yes ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
