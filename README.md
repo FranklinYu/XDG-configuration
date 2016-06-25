@@ -1,5 +1,5 @@
-# debian-setup
-This is my setup script after a fresh Debian/Ubuntu install.
+# Ubuntu setup
+This is my setup script after a fresh Ubuntu install.
 
 ## files
 
