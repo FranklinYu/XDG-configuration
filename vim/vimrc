@@ -1,3 +1,6 @@
+set number
+syntax on
+
 " set location for backup and temporary file (default is `.`)
 " from: http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory
 set backupdir=./.backup,/tmp,.
