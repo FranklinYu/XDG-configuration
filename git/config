@@ -1,0 +1,18 @@
+[user]
+	name = Franklin Yu
+	email = franklinyu@hotmail.com
+[push]
+	default = simple
+[alias]
+	a = add
+	ap = a --patch
+	b = branch
+	c = commit --verbose
+	ca = c --all
+	co = checkout
+	d = diff
+	ds = d --staged
+	l = pull
+	p = push
+	r = remote
+	st = status
