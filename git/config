@@ -16,3 +16,5 @@
 	p = push
 	r = remote
 	st = status
+[pull]
+	ff = only
