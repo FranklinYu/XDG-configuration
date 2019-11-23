@@ -1,6 +1,6 @@
 [user]
 	name = Franklin Yu
-	email = franklinyu@hotmail.com
+	email = franklinyu@google.com
 [push]
 	default = simple
 [alias]
@@ -11,6 +11,7 @@
 	ca = c --all
 	co = checkout
 	d = diff
+	dm = d --find-renames
 	ds = d --staged
 	l = pull
 	p = push
