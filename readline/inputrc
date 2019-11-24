@@ -1,0 +1,4 @@
+# PgDn
+"\e[6~": history-search-forward
+# PgUp
+"\e[5~": history-search-backward
