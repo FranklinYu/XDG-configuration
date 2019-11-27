@@ -13,11 +13,12 @@
 	d = diff
 	dm = d --find-renames
 	ds = d --staged
+	f = fetch
 	l = pull
+	m = merge
 	p = push
 	r = remote
 	st = status
-	m = merge
 	sw = switch
 [pull]
 	ff = only
