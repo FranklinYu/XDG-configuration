@@ -17,5 +17,7 @@
 	p = push
 	r = remote
 	st = status
+	m = merge
+	sw = switch
 [pull]
 	ff = only
