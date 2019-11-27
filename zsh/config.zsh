@@ -11,4 +11,6 @@ bindkey '\e[3~' delete-char # Delete
 bindkey '\e[H' beginning-of-line # Home
 bindkey '\e[F' end-of-line # End
 
+setopt hist_ignore_dups hist_ignore_space inc_append_history
+
 [[ -f ~/.config/zsh/local-config.zsh ]] && source ~/.config/zsh/local-config.zsh
