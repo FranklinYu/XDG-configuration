@@ -1,7 +1,6 @@
 alias g=git
 alias be='bundle exec'
-alias ll='ls -l --human-readable'
-alias la='ls --almost-all'
+alias ls='ls --color=auto' ll='ls -l --human-readable' la='ls --almost-all'
 
 PROMPT='%F{blue}%~%f %(?.%F{green}.%F{red})%#%f '
 
@@ -13,4 +12,11 @@ bindkey '\e[F' end-of-line # End
 
 setopt hist_ignore_dups hist_ignore_space inc_append_history
 
-[[ -f ~/.config/zsh/local-config.zsh ]] && source ~/.config/zsh/local-config.zsh
+source_maybe() {
+    if [ -f "$1" ]
+    then source "$1"
+    else return 1
+    fi
+}
+
+source_maybe ~/.config/zsh/local-config.zsh
