@@ -15,10 +15,14 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/zsh/history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=1000000
 setopt appendhistory
 bindkey -e
 # End of lines configured by zsh-newuser-install
+
+# NOTE: don't edit this file manually; instead, use
+#
+#     autoload -Uz zsh-newuser-install && zsh-newuser-install -f
 
 source ~/.config/zsh/config.zsh
