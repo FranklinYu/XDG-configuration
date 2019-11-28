@@ -1,11 +1,19 @@
 set -o errexit
 
-folder=$(cd `dirname "$0"` && pwd)
-ln -f -s "$folder/readline/inputrc" ~/.inputrc
-ln -f -s "$folder/tmux/tmux.conf" ~/.tmux.conf
-ln -f -s "$folder/vim/vimrc" ~/.vimrc
-ln -f -s "$folder/zsh/newuser-install.zsh" ~/.zshrc
-ln -f -s "$folder/zsh/zprofile.zsh" ~/.zprofile
+ensure_link() {
+    if ( ! [ -e "$2" ] ) || [ -h "$2" ]; then
+        ln -f -s "$1" "$2"
+    else
+        >&2 echo "Error: [$2] exists"
+        return 1
+    fi
+}
+
+ensure_link ~/.config/readline/inputrc ~/.inputrc
+ensure_link ~/.config/tmux/tmux.conf ~/.tmux.conf
+ensure_link ~/.config/vim/vimrc ~/.vimrc
+ensure_link ~/.config/zsh/newuser-install.zsh ~/.zshrc
+ensure_link ~/.config/zsh/zprofile.zsh ~/.zprofile
 
 mkdir -p ~/.cache
 cd ~/.cache
