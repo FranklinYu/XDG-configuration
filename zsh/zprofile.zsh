@@ -17,6 +17,7 @@ export ANSIBLE_CONFIG=~/.config/ansible/ansible.cfg
 export GNUPGHOME=~/.local/share/gnupg
 export IRBRC=~/.config/irb/irbrc
 export NODE_REPL_HISTORY=~/.local/share/nodejs/repl_history
+export NPM_CONFIG_USERCONFIG=~/.config/npm/config
 export PYTHONDONTWRITEBYTECODE=true
 export RLWRAP_HOME=~/.local/share/rlwrap
 export CARGO_HOME=~/.local/share/cargo # Rust

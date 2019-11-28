@@ -1,6 +1,7 @@
 alias g=git
 alias be='bundle exec'
 alias ls='ls --color=auto' ll='ls -l --human-readable' la='ls --almost-all'
+alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
 
 PROMPT='%F{blue}%~%f %(?.%F{green}.%F{red})%#%f '
 
