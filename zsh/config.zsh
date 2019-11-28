@@ -19,4 +19,16 @@ source_maybe() {
     fi
 }
 
+source_from_share() {
+    source_maybe "/usr/share/$1" ||
+        source_maybe "/usr/local/share/$1" ||
+        source_maybe "/opt/local/share/$1"
+}
+
+source_from_share zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source_maybe ~/.config/zsh/local-config.zsh
+
+source_from_share chruby/chruby.sh
+source_from_share chruby/auto.sh
+source_from_share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
