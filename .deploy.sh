@@ -7,5 +7,10 @@ ln -f -s "$folder/vim/vimrc" ~/.vimrc
 ln -f -s "$folder/zsh/newuser-install.zsh" ~/.zshrc
 ln -f -s "$folder/zsh/zprofile.zsh" ~/.zprofile
 
-mkdir -p ~/.cache/zsh
-mkdir -p ~/.cache/irb
+mkdir -p ~/.cache
+cd ~/.cache
+mkdir -p irb nodejs zsh
+
+mkdir -p ~/.local/share
+cd ~/.local/share
+mkdir -p gnupg rlwrap cargo vagrant
