@@ -11,6 +11,7 @@ ensure_link() {
     fi
 }
 
+ensure_link ~/.config/posix-sh/profile.sh ~/.profile
 ensure_link ~/.config/readline/inputrc ~/.inputrc
 ensure_link ~/.config/tmux/tmux.conf ~/.tmux.conf
 ensure_link ~/.config/vim/vimrc ~/.vimrc
