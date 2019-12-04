@@ -9,6 +9,8 @@ export TEX_CLEAN='latexmk -C'
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export ANT_OPTS="-Dant.logger.defaults=$HOME/.config/java/ant-colors"
 
+[ -f /usr/bin/lesspipe ] && eval `lesspipe`
+
 #===============================================================================
 # XDG standard #
 #--------------#
@@ -28,4 +30,4 @@ export LESSKEY=~/.config/less/lesskey
 export NODE_REPL_HISTORY=~/.cache/nodejs/repl_history
 export NPM_CONFIG_USERCONFIG=~/.config/npm/config
 
-[[ -f ~/.config/posix-sh/local-profile.sh ]] && source ~/.config/posix-sh/local-profile.sh
+[ -f ~/.config/posix-sh/local-profile.sh ] && source ~/.config/posix-sh/local-profile.sh
