@@ -1,8 +1,10 @@
 set -o errexit
 
 ensure_link() {
-    if ( ! [ -e "$2" ] ) || [ -h "$2" ]; then
+    if ! [ -e "$2" ]; then
         ln -f -s "$1" "$2"
+    elif [ -h "$2" ]; then
+        ls -dl "$2"
     else
         >&2 echo "Error: [$2] exists"
         return 1
