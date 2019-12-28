@@ -1,5 +1,9 @@
 $include /etc/inputrc
 
+set completion-ignore-case
+set completion-map-case
+set show-all-if-unmodified
+
 # PgDn
 "\e[6~": history-search-forward
 # PgUp
