@@ -30,4 +30,6 @@ export LESSKEY=~/.config/less/lesskey
 export NODE_REPL_HISTORY=~/.cache/nodejs/repl_history
 export NPM_CONFIG_USERCONFIG=~/.config/npm/config
 
-[ -f ~/.config/posix-sh/local-profile.sh ] && source ~/.config/posix-sh/local-profile.sh
+if [ -f ~/.config/posix-sh/local-profile.sh ]
+then source ~/.config/posix-sh/local-profile.sh
+fi
