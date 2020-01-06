@@ -16,5 +16,6 @@ autocmd BufRead,BufNewFile Podfile set filetype=ruby
 autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType zsh setlocal shiftwidth=4 softtabstop=4
 autocmd FileType c setlocal shiftwidth=4 softtabstop=4
 autocmd FileType cpp setlocal shiftwidth=4 softtabstop=4

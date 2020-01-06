@@ -13,16 +13,16 @@ bindkey '\e[F' end-of-line # End
 setopt hist_ignore_dups hist_ignore_space inc_append_history
 
 source_maybe() {
-    if [ -f "$1" ]
-    then source "$1"
-    else return 1
-    fi
+	if [ -f "$1" ]
+	then source "$1"
+	else return 1
+	fi
 }
 
 source_from_share() {
-    source_maybe "/usr/share/$1" ||
-        source_maybe "/usr/local/share/$1" ||
-        source_maybe "/opt/local/share/$1"
+	source_maybe "/usr/share/$1" ||
+		source_maybe "/usr/local/share/$1" ||
+		source_maybe "/opt/local/share/$1"
 }
 
 source_from_share zsh-autosuggestions/zsh-autosuggestions.zsh
