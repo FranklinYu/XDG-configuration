@@ -6,6 +6,8 @@ syntax on
 set backupdir=./.backup,/tmp,.
 set directory=./.backup,/tmp,.
 
+set viminfo+=n~/.cache/vim/info
+
 autocmd BufRead,BufNewFile Podfile set filetype=ruby
 
 " set indentation for each filetypes

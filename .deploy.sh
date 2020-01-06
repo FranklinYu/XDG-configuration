@@ -20,7 +20,7 @@ ensure_link ~/.config/zsh/zprofile.zsh ~/.zprofile
 
 mkdir -p ~/.cache
 cd ~/.cache
-mkdir -p irb nodejs zsh
+mkdir -p irb nodejs vim zsh
 
 mkdir -p ~/.local/share
 cd ~/.local/share
