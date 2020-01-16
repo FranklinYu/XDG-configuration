@@ -32,3 +32,5 @@ source_maybe ~/.config/zsh/local-config.zsh
 source_from_share chruby/chruby.sh
 source_from_share chruby/auto.sh
 source_from_share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+true
