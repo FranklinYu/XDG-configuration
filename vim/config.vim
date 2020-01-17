@@ -19,3 +19,5 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType zsh setlocal shiftwidth=4 softtabstop=4
 autocmd FileType c setlocal shiftwidth=4 softtabstop=4
 autocmd FileType cpp setlocal shiftwidth=4 softtabstop=4
+
+filetype indent plugin on
