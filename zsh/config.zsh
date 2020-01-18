@@ -33,4 +33,4 @@ source_from_share chruby/chruby.sh
 source_from_share chruby/auto.sh
 source_from_share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-true
+unfunction source_from_share source_maybe
