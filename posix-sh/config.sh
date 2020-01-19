@@ -9,6 +9,13 @@ elif [ -f /usr/share/vim/vim80/macros/less.sh ]
 then alias less=/usr/share/vim/vim80/macros/less.sh
 fi
 
-if [ -f ~/.config/posix-sh/local-config.sh ]
-then source ~/.config/posix-sh/local-config.sh
-fi
+source_maybe() {
+	if [ -f "$1" ]
+	then source "$1"
+	else return 1
+	fi
+}
+
+source_maybe ~/.config/posix-sh/local-config.sh
+
+unset -f source_maybe
