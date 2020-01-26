@@ -1,4 +1,4 @@
-PATH=~/.local/bin:"$PATH"
+PATH=~/.local/bin:/opt/local/bin:/opt/local/sbin:"$PATH"
 
 export CFLAGS='-Wall -Wextra -Wpedantic -Wshadow'
 export CXXFLAGS='-Wall -Wextra -Wpedantic -Wshadow'

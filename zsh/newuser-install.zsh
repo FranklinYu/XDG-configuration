@@ -1,3 +1,6 @@
+fpath=(~/.local/share/zsh/site-functions $fpath
+    /opt/local/share/zsh/site-functions)
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
