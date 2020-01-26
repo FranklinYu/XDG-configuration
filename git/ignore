@@ -1,0 +1,4 @@
+.bundle/
+venv/
+
+.DS_Store
