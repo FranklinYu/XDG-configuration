@@ -26,6 +26,7 @@ source_from_share() {
 }
 
 source_from_share zsh-autosuggestions/zsh-autosuggestions.zsh
+source_from_share nvm/nvm.sh
 
 source_maybe ~/.config/zsh/local-config.zsh
 
