@@ -16,6 +16,7 @@ ensure_link() {
 ensure_link ~/.config/bash/profile.bash ~/.bash_profile
 ensure_link ~/.config/posix-sh/profile.sh ~/.profile
 ensure_link ~/.config/readline/inputrc ~/.inputrc
+ensure_link ~/.config/rspec ~/.rspec
 ensure_link ~/.config/tmux/tmux.conf ~/.tmux.conf
 ensure_link ~/.config/vim/config.vim ~/.vimrc
 ensure_link ~/.config/zsh/newuser-install.zsh ~/.zshrc
