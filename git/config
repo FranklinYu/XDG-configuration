@@ -22,3 +22,5 @@
 	sw = switch
 [pull]
 	ff = only
+[include]
+	path = local-config
