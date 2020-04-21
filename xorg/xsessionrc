@@ -1,0 +1,4 @@
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=636108
+if [ -z "$ANT_ARGS" ] && [ -f ~/.profile ]
+then source ~/.profile
+fi

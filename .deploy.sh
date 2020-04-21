@@ -19,6 +19,7 @@ ensure_link ~/.config/readline/inputrc ~/.inputrc
 ensure_link ~/.config/rspec ~/.rspec
 ensure_link ~/.config/tmux/tmux.conf ~/.tmux.conf
 ensure_link ~/.config/vim/config.vim ~/.vimrc
+ensure_link ~/.config/xorg/xsessionrc ~/.sessionrc
 ensure_link ~/.config/zsh/newuser-install.zsh ~/.zshrc
 ensure_link ~/.config/zsh/zprofile.zsh ~/.zprofile
 
