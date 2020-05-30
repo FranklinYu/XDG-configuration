@@ -1,0 +1,6 @@
+/build/
+/*.userdb/
+/sync/
+
+/*.yaml
+!/*.custom.yaml

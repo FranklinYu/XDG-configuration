@@ -30,3 +30,5 @@ mkdir -p irb nodejs vim zsh
 mkdir -p ~/.local/share
 cd ~/.local/share
 mkdir -p gnupg rlwrap cargo vagrant
+
+~/.config/ibus/rime/plum/rime-install jyutping
