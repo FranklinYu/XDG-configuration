@@ -14,10 +14,10 @@ autocmd BufRead,BufNewFile Podfile set filetype=ruby
 " may use `filetype plugin indent on` and additional files to reach same result
 " from: http://vim.wikia.com/wiki/Indenting_source_code#Different_settings_for_different_file_types
 autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType zsh setlocal shiftwidth=4 softtabstop=4
-autocmd FileType c setlocal shiftwidth=4 softtabstop=4
-autocmd FileType cpp setlocal shiftwidth=4 softtabstop=4
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType zsh setlocal shiftwidth=4 tabstop=4
+autocmd FileType c setlocal shiftwidth=4 tabstop=4
+autocmd FileType cpp setlocal shiftwidth=4 tabstop=4
 
 filetype indent plugin on
