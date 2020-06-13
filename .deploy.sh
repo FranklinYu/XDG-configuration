@@ -32,3 +32,7 @@ cd ~/.local/share
 mkdir -p gnupg rlwrap cargo vagrant
 
 ~/.config/ibus/rime/plum/rime-install jyutping
+
+if [[ `uname -s` == Darwin ]]
+then ensure_link ~/.config/ibus/rime ~/Library/Rime
+fi
