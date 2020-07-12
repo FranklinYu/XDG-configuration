@@ -5,9 +5,9 @@ alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
 alias ping='ping -c 10'
 
 if [ -f /usr/share/vim/vim81/macros/less.sh ]
-then alias less=/usr/share/vim/vim81/macros/less.sh
+then alias vless=/usr/share/vim/vim81/macros/less.sh
 elif [ -f /usr/share/vim/vim80/macros/less.sh ]
-then alias less=/usr/share/vim/vim80/macros/less.sh
+then alias vless=/usr/share/vim/vim80/macros/less.sh
 fi
 
 source_maybe() {
