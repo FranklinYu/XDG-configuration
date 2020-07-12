@@ -3,6 +3,7 @@ then emulate sh -c 'source ~/.config/posix-sh/config.sh'
 fi
 
 PROMPT='%F{blue}%~%f %(?.%F{green}.%F{red})%#%f '
+REPORTTIME=10
 WORDCHARS=${WORDCHARS/\/}
 
 bindkey '\e[5~' history-beginning-search-backward # PgUp
