@@ -1,5 +1,5 @@
 fpath=(~/.local/share/zsh/site-functions $fpath
-    /opt/local/share/zsh/site-functions)
+	/opt/local/share/zsh/site-functions)
 
 # The following lines were added by compinstall
 

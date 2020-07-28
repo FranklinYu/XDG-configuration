@@ -1,16 +1,16 @@
 set -o errexit
 
 ensure_link() {
-    if ! [ -e "$2" ]; then
-        # no such file yet
-        ln -s "$1" "$2"
-    elif [ -h "$2" ]; then
-        # symbolic link exists
-        ls -dl "$2"
-    else
-        >&2 echo "Error: [$2] exists"
-        return 1
-    fi
+	if ! [ -e "$2" ]; then
+		# no such file yet
+		ln -s "$1" "$2"
+	elif [ -h "$2" ]; then
+		# symbolic link exists
+		ls -dl "$2"
+	else
+		>&2 echo "Error: [$2] exists"
+		return 1
+	fi
 }
 
 ensure_link ~/.config/bash/profile.bash ~/.bash_profile
