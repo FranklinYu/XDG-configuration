@@ -25,7 +25,11 @@ function ensure_link() {
 	then
 		link_target=`readlink $2`
 		if [ "$link_target" = "$1" ]
-		then echo "$2 verified"
+		then
+			if [ -t 0 ]
+			then echo "\033[30;1m$2 verified\033[0m"
+			else echo "$2 verified"
+			fi
 		else return_error_with_message "Error: [$2] points to [$link_target]"
 		fi
 	else return_error_with_message "Error: trying to overwrite [$2]"
