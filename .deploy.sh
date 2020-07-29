@@ -1,12 +1,31 @@
 set -o errexit
 
+# readlink isn’t guaranteed by POSIX
+if ! command -v readlink >/dev/null
+then
+	>&2 echo "Error: readlink unavailable"
+	return 1
+fi
+
+# Ensure a link from $2 to $1 exist.
+#
+# Argument order is the same as ln(1).
 function ensure_link() {
 	if ! [ -e "$2" ] # no such file yet
-	then ln -s "$1" "$2"
+	then
+		ln -s "$1" "$2"
+		echo "$2 created"
 	elif [ -h "$2" ] # symbolic link exists
-	then ls -dl "$2"
+	then
+		link_target=`readlink $2`
+		if [ "$link_target" = "$1" ]
+		then echo "$2 verified"
+		else
+			>&2 echo "Error: [$2] points to [$link_target]"
+			return 1
+		fi
 	else
-		>&2 echo "Error: [$2] exists"
+		>&2 echo "Error: trying to overwrite [$2]"
 		return 1
 	fi
 }
