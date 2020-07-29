@@ -1,10 +1,16 @@
 set -o errexit
 
+function return_error_with_message() {
+	if [ -t 0 ]
+	then >&2 echo "\033[31m$*\033[0m"
+	else echo "$*"
+	fi
+	return 1
+}
+
 # readlink isn’t guaranteed by POSIX
 if ! command -v readlink >/dev/null
-then
-	>&2 echo "Error: readlink unavailable"
-	return 1
+then return_error_with_message "Error: readlink unavailable"
 fi
 
 # Ensure a link from $2 to $1 exist.
@@ -20,13 +26,9 @@ function ensure_link() {
 		link_target=`readlink $2`
 		if [ "$link_target" = "$1" ]
 		then echo "$2 verified"
-		else
-			>&2 echo "Error: [$2] points to [$link_target]"
-			return 1
+		else return_error_with_message "Error: [$2] points to [$link_target]"
 		fi
-	else
-		>&2 echo "Error: trying to overwrite [$2]"
-		return 1
+	else return_error_with_message "Error: trying to overwrite [$2]"
 	fi
 }
 
