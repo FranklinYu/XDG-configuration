@@ -12,6 +12,7 @@ function ensure_link() {
 }
 
 ensure_link ~/.config/bash/profile.bash ~/.bash_profile
+ensure_link ~/.config/editline/editrc ~/.editrc
 ensure_link ~/.config/posix-sh/profile.sh ~/.profile
 ensure_link ~/.config/readline/inputrc ~/.inputrc
 ensure_link ~/.config/rspec ~/.rspec
