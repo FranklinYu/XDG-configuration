@@ -1,3 +1,6 @@
+# Parameters (passed as environment variables):
+#   NO_RIME: if non-empty, skip synchronization of Rime schemas
+
 set -o errexit
 
 function return_error_with_message() {
@@ -55,7 +58,9 @@ mkdir -p ~/.local/share
 cd ~/.local/share
 mkdir -p gnupg rlwrap cargo vagrant
 
-~/.config/ibus/rime/plum/rime-install jyutping
+if [ -z "$NO_RIME" ]
+then ~/.config/ibus/rime/plum/rime-install jyutping
+fi
 
 if [ `uname -s` = Darwin ]
 then ensure_link ~/.config/ibus/rime ~/Library/Rime
