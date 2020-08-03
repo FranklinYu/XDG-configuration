@@ -3,7 +3,7 @@
 
 set -o errexit
 
-function return_error_with_message() {
+return_error_with_message() {
 	if [ -t 0 ]
 	then >&2 echo "\033[31m$*\033[0m"
 	else echo "$*"
@@ -19,7 +19,7 @@ fi
 # Ensure a link from $2 to $1 exist.
 #
 # Argument order is the same as ln(1).
-function ensure_link() {
+ensure_link() {
 	if ! [ -e "$2" ] # no such file yet
 	then
 		ln -s "$1" "$2"
