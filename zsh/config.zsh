@@ -11,6 +11,8 @@ bindkey '\e[6~' history-beginning-search-forward # PgDn
 bindkey '\e[3~' delete-char # Delete
 bindkey '\e[H' beginning-of-line # Home
 bindkey '\e[F' end-of-line # End
+bindkey -M isearch '\e[5~' history-incremental-search-backward # PgUp
+bindkey -M isearch '\e[6~' history-incremental-search-forward # PgDn
 
 setopt hist_ignore_dups hist_ignore_space inc_append_history
 
