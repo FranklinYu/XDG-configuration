@@ -58,8 +58,9 @@ mkdir -p ~/.local/share
 cd ~/.local/share
 mkdir -p gnupg rlwrap cargo vagrant
 
-if [ -z "$NO_RIME" ]
-then ~/.config/ibus/rime/plum/rime-install jyutping
+if [ -n "$NO_RIME" ]
+then echo 'Rime skipped'
+else ~/.config/ibus/rime/plum/rime-install jyutping
 fi
 
 if [ `uname -s` = Darwin ]
