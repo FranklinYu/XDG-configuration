@@ -17,7 +17,7 @@ fi
 
 source_maybe() {
 	if [ -f "$1" ]
-	then source "$1"
+	then . "$1"
 	else return 1
 	fi
 }

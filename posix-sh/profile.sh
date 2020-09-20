@@ -31,5 +31,5 @@ export NODE_REPL_HISTORY=~/.cache/nodejs/repl_history
 export NPM_CONFIG_USERCONFIG=~/.config/npm/config
 
 if [ -f ~/.config/posix-sh/local-profile.sh ]
-then source ~/.config/posix-sh/local-profile.sh
+then . ~/.config/posix-sh/local-profile.sh
 fi
