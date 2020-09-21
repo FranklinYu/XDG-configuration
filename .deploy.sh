@@ -4,9 +4,9 @@
 set -o errexit
 
 return_error_with_message() {
-	if [ -t 0 ]
-	then >&2 echo "\033[31m$*\033[0m"
-	else echo "$*"
+	if [ -t 2 ]
+	then >&2 printf '\e[31m%s\e[0m\n' "$*"
+	else >&2 echo "$*"
 	fi
 	return 1
 }
