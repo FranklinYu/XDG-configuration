@@ -30,7 +30,7 @@ ensure_link() {
 		if [ "$link_target" = "$1" ]
 		then
 			if [ -t 0 ]
-			then echo "\033[30;1m$2 verified\033[0m"
+			then printf '\e[30;1m%s verified\e[0m\n' "$2"
 			else echo "$2 verified"
 			fi
 		else return_error_with_message "Error: [$2] points to [$link_target]"
