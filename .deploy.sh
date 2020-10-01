@@ -50,6 +50,9 @@ ensure_link ~/.config/xorg/xsessionrc ~/.sessionrc
 ensure_link ~/.config/zsh/newuser-install.zsh ~/.zshrc
 ensure_link ~/.config/zsh/zprofile.zsh ~/.zprofile
 
+mkdir -p ~/.local/bin
+ensure_link ~/.config/.executables/ping-me ~/.local/bin/ping-me
+
 mkdir -p ~/.cache
 cd ~/.cache
 mkdir -p irb nodejs vim zsh

@@ -1,0 +1,12 @@
+#!/usr/bin/ruby
+
+require 'json'
+require 'net/http'
+require 'uri'
+
+if ENV.has_key?('GOOGLE_CHAT_NOTIFICATION_WEBHOOK')
+  url = URI(ENV['GOOGLE_CHAT_NOTIFICATION_WEBHOOK'])
+  Net::HTTP.post(url, {text: ARGV[0]}.to_json, {'Content-Type': 'application/json'})
+else
+  raise 'Environment variable "GOOGLE_CHAT_NOTIFICATION_WEBHOOK" missing.'
+end
