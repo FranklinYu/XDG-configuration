@@ -9,6 +9,11 @@ then alias ll='exa --long' la='exa --all' tree='exa --tree'
 else alias ll='ls -l --human-readable' la='ls --almost-all'
 fi
 
+if command -v bat >/dev/null
+then alias cat='bat --style=plain'
+else alias bat=cat
+fi
+
 if [ -f /usr/share/vim/vim81/macros/less.sh ]
 then alias vless=/usr/share/vim/vim81/macros/less.sh
 elif [ -f /usr/share/vim/vim80/macros/less.sh ]
