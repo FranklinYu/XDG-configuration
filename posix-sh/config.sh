@@ -3,6 +3,7 @@ alias be='bundle exec'
 alias ls='ls --color=auto'
 alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
 alias ping='ping -c 10'
+alias pu=pushd po=popd d='dirs -v'
 
 if command -v exa >/dev/null 2>&1
 then alias ll='exa --long' la='exa --all' tree='exa --tree'
