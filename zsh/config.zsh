@@ -45,8 +45,14 @@ source_from_share nvm/nvm.sh
 
 source_maybe ~/.config/zsh/local-config.zsh
 
-source_from_share chruby/chruby.sh
-source_from_share chruby/auto.sh
+function () {
+	local ls_alias=$aliases[ls]
+	unalias ls
+	source_from_share chruby/chruby.sh
+	source_from_share chruby/auto.sh
+	alias ls="$ls_alias"
+}
+
 source_from_share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 unfunction source_from_share source_maybe

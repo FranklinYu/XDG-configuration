@@ -1,13 +1,12 @@
 alias g=git
 alias be='bundle exec'
-alias ls='ls --color=auto'
 alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
 alias ping='ping -c 10'
 alias pu=pushd po=popd d='dirs -v'
 
 if command -v exa >/dev/null 2>&1
-then alias ll='exa --long' la='exa --all' tree='exa --tree'
-else alias ll='ls -l --human-readable' la='ls --almost-all'
+then alias ls=exa ll='exa --long' la='exa --all' tree='exa --tree'
+else alias ls='ls --color=auto' ll='ls -l --human-readable' la='ls --almost-all'
 fi
 
 if command -v bat >/dev/null
