@@ -1,6 +1,6 @@
 # configurations
 
-Place this folder at `$XDG_CONFIG_HOME`.
+Place this folder at `~/.config`.
 
 Some of the Git aliases only work in Git 2.20 or above;
 see [release note][git-alias] for details.
