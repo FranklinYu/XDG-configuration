@@ -33,7 +33,7 @@ then
 		then iterm2_set_user_var node_version `nvm version`
 		fi
 	}
-	precmd_functions+=(__set-status-bar)
+	add-zsh-hook precmd __set-status-bar
 fi
 
 source_from_share() {
