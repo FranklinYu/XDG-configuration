@@ -14,6 +14,9 @@ bindkey '\e[F' end-of-line # End
 bindkey -M isearch '\e[5~' history-incremental-search-backward # PgUp
 bindkey -M isearch '\e[6~' history-incremental-search-forward # PgDn
 
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
+
 setopt hist_ignore_dups hist_ignore_space inc_append_history
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
