@@ -10,7 +10,7 @@ function pm() {
 	__report_next_completion=true
 }
 
-function __report_command_completion() {
+function __report-command-completion() {
 	local return_value=$?
 	if [ -z "$__report_next_completion" ]
 	then return 0
@@ -44,4 +44,4 @@ function __report_command_completion() {
 	unset __report_next_completion
 }
 
-add-zsh-hook precmd __report_command_completion
+add-zsh-hook precmd __report-command-completion

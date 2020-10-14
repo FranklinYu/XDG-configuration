@@ -18,32 +18,32 @@ setopt hist_ignore_dups hist_ignore_space inc_append_history
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
-function source_maybe() {
+function source-maybe() {
 	if [ -f "$1" ]
 	then source "$1"
 	else return 1
 	fi
 }
 
-function source_from_share() {
-	source_maybe "/usr/share/$1" ||
-		source_maybe "/usr/local/share/$1" ||
-		source_maybe "/opt/local/share/$1"
+function source-from-share() {
+	source-maybe "/usr/share/$1" ||
+		source-maybe "/usr/local/share/$1" ||
+		source-maybe "/opt/local/share/$1"
 }
 
 function () {
 	local ls_alias=$aliases[ls]
 	unalias ls
-	source_from_share chruby/chruby.sh
+	source-from-share chruby/chruby.sh
 	alias ls="$ls_alias"
 }
-source_from_share chruby/auto.sh
+source-from-share chruby/auto.sh
 add-zsh-hook -d preexec chruby_auto
 add-zsh-hook precmd chruby_auto
 
-source_from_share nvm/nvm.sh
+source-from-share nvm/nvm.sh
 
-if source_maybe /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh
+if source-maybe /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh
 then
 	function __set-status-bar() {
 		iterm2_set_user_var ruby_version ${RUBY_VERSION:-system}
@@ -54,8 +54,8 @@ then
 	add-zsh-hook precmd __set-status-bar
 fi
 
-source_from_share zsh-autosuggestions/zsh-autosuggestions.zsh
+source-from-share zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source_maybe ~/.config/zsh/local-config.zsh
-source_from_share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-unfunction source_from_share source_maybe
+source-maybe ~/.config/zsh/local-config.zsh
+source-from-share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+unfunction source-from-share source-maybe
