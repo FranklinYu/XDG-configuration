@@ -40,9 +40,11 @@ function () {
 	source-from-share chruby/chruby.sh
 	alias ls="$ls_alias"
 }
-source-from-share chruby/auto.sh
-add-zsh-hook -d preexec chruby_auto
-add-zsh-hook precmd chruby_auto
+if source-from-share chruby/auto.sh
+then
+	add-zsh-hook -d preexec chruby_auto
+	add-zsh-hook precmd chruby_auto
+fi
 
 source-from-share nvm/nvm.sh
 
