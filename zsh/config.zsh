@@ -18,14 +18,14 @@ setopt hist_ignore_dups hist_ignore_space inc_append_history
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
-source_maybe() {
+function source_maybe() {
 	if [ -f "$1" ]
 	then source "$1"
 	else return 1
 	fi
 }
 
-source_from_share() {
+function source_from_share() {
 	source_maybe "/usr/share/$1" ||
 		source_maybe "/usr/local/share/$1" ||
 		source_maybe "/opt/local/share/$1"
