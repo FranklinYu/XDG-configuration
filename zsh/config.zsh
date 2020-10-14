@@ -25,6 +25,24 @@ source_maybe() {
 	fi
 }
 
+source_from_share() {
+	source_maybe "/usr/share/$1" ||
+		source_maybe "/usr/local/share/$1" ||
+		source_maybe "/opt/local/share/$1"
+}
+
+function () {
+	local ls_alias=$aliases[ls]
+	unalias ls
+	source_from_share chruby/chruby.sh
+	alias ls="$ls_alias"
+}
+source_from_share chruby/auto.sh
+add-zsh-hook -d preexec chruby_auto
+add-zsh-hook precmd chruby_auto
+
+source_from_share nvm/nvm.sh
+
 if source_maybe /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh
 then
 	function __set-status-bar() {
@@ -36,25 +54,8 @@ then
 	add-zsh-hook precmd __set-status-bar
 fi
 
-source_from_share() {
-	source_maybe "/usr/share/$1" ||
-		source_maybe "/usr/local/share/$1" ||
-		source_maybe "/opt/local/share/$1"
-}
-
 source_from_share zsh-autosuggestions/zsh-autosuggestions.zsh
-source_from_share nvm/nvm.sh
 
 source_maybe ~/.config/zsh/local-config.zsh
-
-function () {
-	local ls_alias=$aliases[ls]
-	unalias ls
-	source_from_share chruby/chruby.sh
-	source_from_share chruby/auto.sh
-	alias ls="$ls_alias"
-}
-
 source_from_share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 unfunction source_from_share source_maybe
