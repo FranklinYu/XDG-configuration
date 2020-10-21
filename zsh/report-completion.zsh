@@ -16,10 +16,6 @@ function __report-command-completion() {
 	then return 0
 	fi
 
-	if ! command -v ping-me >/dev/null
-	then >&2 echo '"ping-me" not found.'
-	fi
-
 	local cmd=`history -1 | sed 's/ *[0-9]* *//' | sed 's/pm *&& *//'`
 
 	local status_verb=''
