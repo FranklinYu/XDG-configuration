@@ -1,4 +1,6 @@
 PATH=~/.local/bin:/opt/local/bin:/opt/local/sbin:"$PATH"
+export MANPATH=~/.local/share/man:/opt/local/share/man:"$MANPATH"
+export INFOPATH=~/.local/share/info:/opt/local/share/info:"$INFOPATH"
 
 export CFLAGS='-Wall -Wextra -Wpedantic -Wshadow'
 export CXXFLAGS='-Wall -Wextra -Wpedantic -Wshadow'
