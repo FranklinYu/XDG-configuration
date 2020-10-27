@@ -1,4 +1,4 @@
-if [ -f ~/.config/posix-sh/config.sh ]
+if [[ -f ~/.config/posix-sh/config.sh ]]
 then emulate sh -c 'source ~/.config/posix-sh/config.sh'
 fi
 
@@ -22,8 +22,8 @@ autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
 function source-maybe() {
-	if [ -f "$1" ]
-	then source "$1"
+	if [[ -f $1 ]]
+	then source $1
 	else return 1
 	fi
 }
@@ -38,7 +38,7 @@ function () {
 	local ls_alias=$aliases[ls]
 	unalias ls
 	source-from-share chruby/chruby.sh
-	alias ls="$ls_alias"
+	alias ls=$ls_alias
 }
 if source-from-share chruby/auto.sh
 then

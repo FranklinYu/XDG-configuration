@@ -12,7 +12,7 @@ function pm() {
 
 function __report-command-completion() {
 	local return_value=$?
-	if [ -z "$__report_next_completion" ]
+	if [[ -z $__report_next_completion ]]
 	then return 0
 	fi
 
@@ -26,7 +26,7 @@ function __report-command-completion() {
 
 	local message
 	if [[ ${#cmd} -lt 50 ]]
-	then message=$(printf '`%s` %s' "$cmd" "$status_verb")
+	then message=$(printf '`%s` %s' $cmd $status_verb)
 	else
 		message=("following command $status_verb:" '' '```')
 		message+=$cmd
@@ -35,7 +35,7 @@ function __report-command-completion() {
 
 	local orig_ifs=$IFS
 	IFS=$'\n'
-	ping-me "$message"
+	ping-me $message
 	IFS=$orig_ifs
 	unset __report_next_completion
 }
