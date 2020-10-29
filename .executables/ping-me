@@ -2,12 +2,59 @@
 
 require 'json'
 require 'net/http'
+require 'optparse'
 require 'uri'
+
+params = {}
+OptionParser.new do |opts|
+  opts.separator ''
+  opts.separator 'Options:'
+
+  opts.on('-h', '--help', 'Display this help') do
+    puts opts
+    exit
+  end
+
+  opts.on('--command CMD', String, 'Report completion of <CMD>, instead of <MESSAGE>')
+  opts.on('--code CODE', Integer, 'The return code of <CMD>; defaults to 0')
+  opts.on('-m', '--message MESSAGE', String, 'The message to send')
+
+  if ARGV[0] == 'help'
+    puts opts
+    exit
+  end
+end.parse!(into: params)
+
+message =
+  if params[:message]
+    params[:message]
+  elsif params[:command]
+    status =
+      if params.has_key?(:code) && params[:code] != 0
+        "failed with status #{params[:code]}"
+      else
+        'succeeded'
+      end
+
+    if params[:command].length < 50
+      "`#{params[:command]}` #{status}"
+    else
+      <<~EOF
+        Following command #{status}:
+
+        ```
+        #{params[:command]}
+        ```
+      EOF
+    end
+  else
+    raise OptionParser::MissingArgument, 'Either "--message" or "--command" is required'
+  end
 
 var_name = 'GOOGLE_CHAT_NOTIFICATION_WEBHOOK'
 if ENV.has_key?(var_name) && !ENV[var_name].empty?
   url = URI(ENV[var_name])
-  Net::HTTP.post(url, {text: ARGV[0]}.to_json, {'Content-Type': 'application/json'})
+  Net::HTTP.post(url, {text: message}.to_json, {'Content-Type': 'application/json'})
 else
   raise "Environment variable '#{var_name}' missing."
 end
