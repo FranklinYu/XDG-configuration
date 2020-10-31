@@ -55,7 +55,7 @@ ensure_link ~/.config/.executables/ping-me ~/.local/bin/ping-me
 
 mkdir -p ~/.cache
 cd ~/.cache
-mkdir -p irb nodejs vim zsh
+mkdir -p irb nodejs pry vim zsh
 
 mkdir -p ~/.local/share
 cd ~/.local/share
