@@ -5,15 +5,15 @@ set -o errexit
 
 return_error_with_message() {
 	if [ -t 2 ]
-	then >&2 printf '\e[31m%s\e[0m\n' "$*"
-	else >&2 echo "$*"
+	then >&2 printf '\e[31mError: %s\e[0m\n' "$*"
+	else >&2 echo "Error: $*"
 	fi
 	return 1
 }
 
 # readlink isn’t guaranteed by POSIX
 if ! command -v readlink >/dev/null
-then return_error_with_message "Error: readlink unavailable"
+then return_error_with_message "readlink unavailable"
 fi
 
 # Ensure a link from $2 to $1 exist.
@@ -33,9 +33,9 @@ ensure_link() {
 			then printf '\e[30;1m%s verified\e[0m\n' "$2"
 			else echo "$2 verified"
 			fi
-		else return_error_with_message "Error: [$2] points to [$link_target]"
+		else return_error_with_message "[$2] points to [$link_target]"
 		fi
-	else return_error_with_message "Error: trying to overwrite [$2]"
+	else return_error_with_message "trying to overwrite [$2]"
 	fi
 }
 
