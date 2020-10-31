@@ -61,6 +61,25 @@ fi
 
 source-from-share zsh-autosuggestions/zsh-autosuggestions.zsh
 
+function () {
+	local preview_command
+	if whence -p bat >/dev/null
+	then preview_command='bat --style=numbers --color=always --line-range :500 {}'
+	else preview_command='cat {}'
+	fi
+	preview_command="--preview '$preview_command'"
+
+	if source-from-share skim/shell/key-bindings.zsh
+	then
+		bindkey '^\' skim-cd-widget
+		SKIM_CTRL_T_OPTS=$preview_command
+	elif source-from-share fzf/shell/key-bindings.zsh
+	then
+		bindkey '^\' fzf-cd-widget
+		FZF_CTRL_T_OPTS=$preview_command
+	fi
+}
+
 source-maybe ~/.config/zsh/local-config.zsh
 source-from-share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 unfunction source-from-share source-maybe
