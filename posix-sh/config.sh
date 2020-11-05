@@ -20,6 +20,11 @@ elif [ -f /usr/share/vim/vim80/macros/less.sh ]
 then alias vless=/usr/share/vim/vim80/macros/less.sh
 fi
 
+if [ "`uname`" = Darwin ]
+then alias cp='cp -v' mv='mv -v' rm='rm -v'
+else alias cp='cp --verbose' mv='mv --verbose' rm='rm --verbose'
+fi
+
 source_maybe() {
 	if [ -f "$1" ]
 	then . "$1"
