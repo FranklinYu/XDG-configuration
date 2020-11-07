@@ -21,6 +21,23 @@ setopt hist_ignore_dups hist_ignore_space inc_append_history
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
+# For meaning of 130, see:
+# https://unix.stackexchange.com/questions/223189/what-does-exit-code-130-mean-for-postgres-command
+function ssh() {
+	if [[ $# == 1 ]] && [[ -z $SSH_TTY ]]
+	then
+		function TRAPEXIT() {
+			printf '\e]0;\a'
+		}
+		setopt local_options local_traps
+		trap 'return 130' INT
+
+		printf '\e]0;@%s\a' $1
+		command ssh $1
+	else command ssh $@
+	fi
+}
+
 function source-maybe() {
 	if [[ -f $1 ]]
 	then source $1
