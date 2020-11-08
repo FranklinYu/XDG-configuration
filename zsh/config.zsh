@@ -21,8 +21,8 @@ setopt hist_ignore_dups hist_ignore_space inc_append_history
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
-# For meaning of 130, see:
-# https://unix.stackexchange.com/questions/223189/what-does-exit-code-130-mean-for-postgres-command
+# For meaning of returning 130, see:
+# https://unix.stackexchange.com/questions/99112/default-exit-code-when-process-is-terminated
 function ssh() {
 	if [[ $# == 1 ]] && [[ -z $SSH_TTY ]]
 	then
