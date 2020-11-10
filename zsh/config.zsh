@@ -86,11 +86,14 @@ function () {
 	fi
 	preview_command="--preview '$preview_command'"
 
-	if source-from-share skim/shell/key-bindings.zsh
+	if source-from-share skim/shell/key-bindings.zsh || # Homebrew, MacPorts, and Fedora
+		source-maybe /usr/share/skim/key-bindings.zsh # Arch Linux
 	then
 		bindkey '^\' skim-cd-widget
 		SKIM_CTRL_T_OPTS=$preview_command
-	elif source-from-share fzf/shell/key-bindings.zsh
+	elif source-from-share fzf/shell/key-bindings.zsh ||
+		source-maybe /usr/share/fzf/key-bindings.zsh ||
+		source-maybe /usr/share/doc/fzf/examples/key-bindings.zsh # Debian
 	then
 		bindkey '^\' fzf-cd-widget
 		FZF_CTRL_T_OPTS=$preview_command
