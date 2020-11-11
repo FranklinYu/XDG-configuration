@@ -38,17 +38,15 @@ function ssh() {
 	fi
 }
 
+# [deprecated]
 function source-maybe() {
-	if [[ -f $1 ]]
-	then source $1
-	else return 1
-	fi
+	2>/dev/null source $1
 }
 
 function source-from-share() {
-	source-maybe "/usr/share/$1" ||
-		source-maybe "/usr/local/share/$1" ||
-		source-maybe "/opt/local/share/$1"
+	2>/dev/null source "/usr/share/$1" ||
+		2>/dev/null source "/usr/local/share/$1" ||
+		2>/dev/null source "/opt/local/share/$1"
 }
 
 function () {
@@ -65,7 +63,7 @@ fi
 
 source-from-share nvm/nvm.sh
 
-if source-maybe /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh
+if 2>/dev/null source /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh
 then
 	function __set-status-bar() {
 		iterm2_set_user_var ruby_version ${RUBY_VERSION:-system}
@@ -87,19 +85,19 @@ function () {
 	preview_command="--preview '$preview_command'"
 
 	if source-from-share skim/shell/key-bindings.zsh || # Homebrew, MacPorts, and Fedora
-		source-maybe /usr/share/skim/key-bindings.zsh # Arch Linux
+		2>/dev/null source /usr/share/skim/key-bindings.zsh # Arch Linux
 	then
 		bindkey '^\' skim-cd-widget
 		SKIM_CTRL_T_OPTS=$preview_command
 	elif source-from-share fzf/shell/key-bindings.zsh ||
-		source-maybe /usr/share/fzf/key-bindings.zsh ||
-		source-maybe /usr/share/doc/fzf/examples/key-bindings.zsh # Debian
+		2>/dev/null source /usr/share/fzf/key-bindings.zsh ||
+		2>/dev/null source /usr/share/doc/fzf/examples/key-bindings.zsh # Debian
 	then
 		bindkey '^\' fzf-cd-widget
 		FZF_CTRL_T_OPTS=$preview_command
 	fi
 }
 
-source-maybe ~/.config/zsh/local-config.zsh
+2>/dev/null source ~/.config/zsh/local-config.zsh
 source-from-share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 unfunction source-from-share source-maybe

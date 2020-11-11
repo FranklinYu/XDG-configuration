@@ -25,11 +25,9 @@ then alias cp='cp -v' mv='mv -v' rm='rm -v'
 else alias cp='cp --verbose' mv='mv --verbose' rm='rm --verbose'
 fi
 
+# [deprecated]
 source_maybe() {
-	if [ -f "$1" ]
-	then . "$1"
-	else return 1
-	fi
+	2>/dev/null . "$1"
 }
 
 source_maybe ~/.config/posix-sh/local-config.sh
