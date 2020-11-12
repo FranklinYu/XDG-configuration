@@ -76,6 +76,25 @@ fi
 
 source-from-share zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables
+function () {
+	typeset -A mappings=(
+		[md]='tput setaf 6' # start of bold: cyan
+		[me]='tput sgr0' # end of bold
+		[us]='tput setaf 2; tput smul' # start of underline: green underline
+		[ue]='tput sgr0' # end of underline
+		[so]='tput setaf 0; tput setab 3' # start of standout
+		[se]='tput sgr0' # end of standout
+	)
+
+	local env_string termcap terminfo
+	for termcap terminfo in ${(@kv)mappings}
+	do env_string+=$(printf 'LESS_TERMCAP_%s=`%s` ' $termcap $terminfo)
+	done
+	env_string+='LESS=--LONG-PROMPT'
+	alias man="$env_string man"
+}
+
 function () {
 	local preview_command
 	if whence -p bat >/dev/null
