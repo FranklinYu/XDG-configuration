@@ -57,6 +57,16 @@ function () {
 	alias man="$env_string man"
 }
 
+function() {
+	local magenta_bold=`tput setaf 5; tput bold` cyan=`tput setaf 6` reset=`tput sgr0`
+	local lines=(
+		"$magenta_bold== time report ==$reset"
+		' command: %J'
+		" user: $cyan%U$reset system: $cyan%S$reset total: $cyan%*E$reset CPU: $cyan%P$reset"
+	)
+	TIMEFMT=${(F)lines}
+}
+
 # [deprecated]
 function source-maybe() {
 	2>/dev/null source $1
