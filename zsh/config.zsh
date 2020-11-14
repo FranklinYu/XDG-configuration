@@ -49,12 +49,12 @@ function () {
 		[se]='tput sgr0' # end of standout
 	)
 
-	local env_string termcap terminfo
+	local env_vars=() termcap terminfo
 	for termcap terminfo in ${(@kv)mappings}
-	do env_string+=$(printf 'LESS_TERMCAP_%s=`%s` ' $termcap $terminfo)
+	do env_vars+=$(printf 'LESS_TERMCAP_%s=`%s`' $termcap $terminfo)
 	done
-	env_string+='LESS=--LONG-PROMPT'
-	alias man="$env_string man"
+	env_vars+='LESS=--LONG-PROMPT'
+	alias man="$env_vars man"
 }
 
 function() {
