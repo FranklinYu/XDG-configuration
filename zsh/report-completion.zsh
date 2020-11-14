@@ -11,7 +11,7 @@ function pm() {
 }
 
 function __report-command-completion() {
-	local return_value=$?
+	local return_value=$status
 	if [[ -z $__report_next_completion ]]
 	then return 0
 	fi

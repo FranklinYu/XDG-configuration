@@ -24,7 +24,7 @@ source ~/.config/zsh/report-completion.zsh
 # For meaning of returning 130, see:
 # https://unix.stackexchange.com/questions/99112/default-exit-code-when-process-is-terminated
 function ssh() {
-	if [[ $# == 1 ]] && [[ -z $SSH_TTY ]]
+	if [[ $ARGC == 1 ]] && [[ -z $SSH_TTY ]]
 	then
 		function TRAPEXIT() {
 			printf '\e]0;\a'
@@ -34,7 +34,7 @@ function ssh() {
 
 		printf '\e]0;@%s\a' $1
 		command ssh $1
-	else command ssh $@
+	else command ssh $argv
 	fi
 }
 
