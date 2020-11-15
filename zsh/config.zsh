@@ -41,17 +41,17 @@ function ssh() {
 # https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables
 function () {
 	typeset -A mappings=(
-		[md]='tput setaf 6' # start of bold: cyan
-		[me]='tput sgr0' # end of bold
-		[us]='tput setaf 2; tput smul' # start of underline: green underline
-		[ue]='tput sgr0' # end of underline
-		[so]='tput setaf 0; tput setab 3' # start of standout
-		[se]='tput sgr0' # end of standout
+		[md]='%F{cyan}' # start of bold
+		[me]='%f' # end of bold
+		[us]='%F{green}%U' # start of underline
+		[ue]='%f%u' # end of underline
+		[so]='%F{black}%K{yellow}' # start of standout
+		[se]='%f%k' # end of standout
 	)
 
 	local env_vars=() termcap terminfo
 	for termcap terminfo in ${(@kv)mappings}
-	do env_vars+=$(printf 'LESS_TERMCAP_%s=`%s`' $termcap $terminfo)
+	do env_vars+=$(printf 'LESS_TERMCAP_%s=%s' $termcap ${(%)terminfo})
 	done
 	env_vars+='LESS=--LONG-PROMPT'
 	alias man="$env_vars man"
