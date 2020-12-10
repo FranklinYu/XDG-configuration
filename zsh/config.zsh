@@ -58,7 +58,7 @@ function () {
 	alias man="$env_vars man"
 }
 
-function() {
+function () {
 	local magenta_bold=`tput setaf 5; tput bold` cyan=`tput setaf 6` reset=`tput sgr0`
 	local lines=(
 		"$magenta_bold== time report ==$reset"
