@@ -5,6 +5,7 @@ fi
 PROMPT='%F{blue}%~%f %(?.%F{green}.%F{red})%#%f '
 REPORTTIME=10
 WORDCHARS=${WORDCHARS/\/}
+WORDCHARS=${WORDCHARS/=}
 
 bindkey '\e[5~' history-beginning-search-backward # PgUp
 bindkey '\e[6~' history-beginning-search-forward # PgDn
