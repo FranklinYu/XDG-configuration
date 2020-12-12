@@ -30,9 +30,12 @@ then alias cp='cp -v' mv='mv -v' rm='rm -v'
 else alias cp='cp --verbose' mv='mv --verbose' rm='rm --verbose'
 fi
 
-# [deprecated]
+# https://unix.stackexchange.com/questions/623725/does-posix-specify-whether-to-continue-script-when-nested-dot-fails
 source_maybe() {
-	2>/dev/null . "$1"
+	if [ -f "$1" ]
+	then . "$1"
+	else return 1
+	fi
 }
 
 source_maybe ~/.config/posix-sh/local-config.sh
