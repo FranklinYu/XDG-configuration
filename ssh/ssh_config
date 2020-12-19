@@ -1,0 +1,7 @@
+# macOS only
+IgnoreUnknown UseKeychain
+UseKeychain yes
+
+AddKeysToAgent yes
+
+Include ~/.config/ssh/local.ssh_config
