@@ -111,7 +111,11 @@ function () {
 	if whence -p bat >/dev/null
 	then preview_command='bat --style=numbers --color=always --line-range :500 {}'
 	elif whence -p highlight >/dev/null
-	then preview_command='highlight --out-format=xterm256 --line-numbers --line-range=1-500 {}'
+	then
+		if (( `tput colors` == 256 ))
+		then preview_command='highlight --out-format=xterm256 --line-numbers --line-range=1-500 {}'
+		else preview_command='highlight --out-format=ansi --line-range=0-500 {}'
+		fi
 	else preview_command='cat {}'
 	fi
 	preview_command="--preview '$preview_command'"
