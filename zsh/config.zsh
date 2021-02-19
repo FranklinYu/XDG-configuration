@@ -41,7 +41,7 @@ function ssh() {
 
 # https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables
 function () {
-	typeset -A mappings=(
+	declare -A mappings=(
 		[md]='%F{cyan}' # start of bold
 		[me]='%f' # end of bold
 		[us]='%F{green}%U' # start of underline
