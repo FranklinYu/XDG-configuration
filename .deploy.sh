@@ -49,7 +49,7 @@ ensure_link ~/.config/tmux/tmux.conf ~/.tmux.conf
 ensure_link ~/.config/vim/config.vim ~/.vimrc
 ensure_link ~/.config/xorg/xsessionrc ~/.sessionrc
 ensure_link ~/.config/zsh/newuser-install.zsh ~/.zshrc
-ensure_link ~/.config/zsh/zprofile.zsh ~/.zprofile
+ensure_link ~/.config/zsh/profile.zsh ~/.zprofile
 
 mkdir -p ~/.local/bin
 ensure_link ~/.config/.executables/ping-me ~/.local/bin/ping-me
