@@ -22,23 +22,6 @@ setopt hist_ignore_dups hist_ignore_space inc_append_history
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
-# For meaning of returning 130, see:
-# https://unix.stackexchange.com/questions/99112/default-exit-code-when-process-is-terminated
-function ssh() {
-	if [[ $ARGC == 1 ]] && [[ -z $SSH_TTY ]]
-	then
-		function TRAPEXIT() {
-			printf '\e]0;\a'
-		}
-		setopt local_options local_traps
-		trap 'return 130' INT
-
-		printf '\e]0;@%s\a' $1
-		command ssh $1
-	else command ssh $argv
-	fi
-}
-
 # https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables
 function () {
 	declare -A mappings=(
