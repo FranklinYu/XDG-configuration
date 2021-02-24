@@ -1,5 +1,5 @@
 patch:
-  "menu/page_size": 4
+  menu/page_size: 4
   schema_list:
     - schema: luna_pinyin
     - schema: luna_pinyin_simp
