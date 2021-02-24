@@ -64,7 +64,7 @@ mkdir -p gnupg rlwrap cargo vagrant
 
 if [ -n "$NO_RIME" ]
 then echo 'Rime skipped'
-else ~/.config/ibus/rime/plum/rime-install jyutping
+else ~/.config/ibus/rime/plum/rime-install jyutping felixonmars/fcitx5-pinyin-zhwiki
 fi
 
 if [ `uname -s` = Darwin ]

@@ -4,3 +4,4 @@
 
 /*.yaml
 !/*.custom.yaml
+!/*.custom.dict.yaml
