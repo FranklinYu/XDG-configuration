@@ -5,3 +5,6 @@
 /*.yaml
 !/*.custom.yaml
 !/*.custom.dict.yaml
+
+# https://github.com/rime/rime-essay
+/essay.txt
