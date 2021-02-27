@@ -1,0 +1,5 @@
+#!/usr/bin/osascript
+
+on run argv
+	tell application "Finder" to delete item 1 of argv as POSIX file
+end run
