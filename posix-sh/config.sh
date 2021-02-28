@@ -14,6 +14,10 @@ else alias ls='ls --color=auto' ll="${___ll_prefix}ls -l --human-readable" la='l
 fi
 unset ___ll_prefix
 
+if command -v lsb_release && [ "`lsb_release --id --short`" = Debian ]
+then alias fd=fdfind bat=batcat
+fi
+
 if command -v bat >/dev/null
 then alias cat='bat --style=plain'
 else alias bat=cat
