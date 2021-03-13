@@ -51,6 +51,17 @@ function () {
 	TIMEFMT=${(F)lines}
 }
 
+function () {
+	local ll_prefix=''
+	if [[ `uname` == Darwin ]]
+	then ll_prefix='LC_TIME=en_US.UTF-8 '
+	fi
+	if command -v exa >/dev/null
+	then alias ls=exa ll="${ll_prefix}exa --long --header" la='exa --all' tree='exa --tree'
+	else alias ls='ls --color=auto' ll="${ll_prefix}ls -l --human-readable" la='ls --almost-all'
+	fi
+}
+
 # [deprecated]
 function source-maybe() {
 	2>/dev/null source $1
@@ -80,7 +91,7 @@ if 2>/dev/null source /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm
 then
 	function __set-status-bar() {
 		iterm2_set_user_var ruby_version ${RUBY_VERSION:-system}
-		if command -v nvm > /dev/null
+		if command -v nvm >/dev/null
 		then iterm2_set_user_var node_version `nvm version`
 		fi
 	}
