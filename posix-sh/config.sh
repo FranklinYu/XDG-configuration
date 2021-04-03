@@ -4,7 +4,7 @@ alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
 alias ping='ping -c 10'
 alias pu=pushd po=popd d='dirs -v'
 
-if command -v lsb_release && [ "`lsb_release --id --short`" = Debian ]
+if command -v lsb_release >/dev/null && [ "`lsb_release --id --short`" = Debian ]
 then alias fd=fdfind bat=batcat
 fi
 
