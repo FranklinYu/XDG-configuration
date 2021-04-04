@@ -13,7 +13,9 @@ then alias cat='bat --style=plain'
 else alias bat=cat
 fi
 
-if [ -f /usr/share/vim/vim81/macros/less.sh ]
+if [ -f /usr/share/vim/vim82/macros/less.sh ]
+then alias vless=/usr/share/vim/vim82/macros/less.sh
+elif [ -f /usr/share/vim/vim81/macros/less.sh ]
 then alias vless=/usr/share/vim/vim81/macros/less.sh
 elif [ -f /usr/share/vim/vim80/macros/less.sh ]
 then alias vless=/usr/share/vim/vim80/macros/less.sh
