@@ -22,8 +22,8 @@ then alias vless=/usr/share/vim/vim80/macros/less.sh
 fi
 
 if [ "`uname`" = Darwin ]
-then alias cp='cp -v' mv='mv -v' rm='rm -v'
-else alias cp='cp --verbose' mv='mv --verbose' rm='rm --verbose'
+then alias cp='cp -v' ln='ln -v' mv='mv -v' rm='rm -v'
+else alias cp='cp --verbose' ln='ln --verbose' mv='mv --verbose' rm='rm --verbose'
 fi
 
 # https://unix.stackexchange.com/questions/623725/does-posix-specify-whether-to-continue-script-when-nested-dot-fails
