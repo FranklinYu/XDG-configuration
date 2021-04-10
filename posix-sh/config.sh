@@ -10,7 +10,6 @@ fi
 
 if command -v bat >/dev/null
 then alias cat='bat --style=plain'
-else alias bat=cat
 fi
 
 if [ -f /usr/share/vim/vim82/macros/less.sh ]
