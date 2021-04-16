@@ -87,7 +87,8 @@ fi
 
 source-from-share nvm/nvm.sh
 
-if 2>/dev/null source /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh
+if 2>/dev/null source /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh ||
+	2>/dev/null source /Applications/iTerm.app/Contents/Resources/iterm2_shell_integration.zsh
 then
 	function __set-status-bar() {
 		iterm2_set_user_var ruby_version ${RUBY_VERSION:-system}
