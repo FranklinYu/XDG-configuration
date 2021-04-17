@@ -3,6 +3,7 @@ alias be='bundle exec'
 alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
 alias ping='ping -c 10'
 alias pu=pushd po=popd d='dirs -v'
+alias grep='grep --color'
 
 if command -v lsb_release >/dev/null && [ "`lsb_release --id --short`" = Debian ]
 then alias fd=fdfind bat=batcat
