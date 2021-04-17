@@ -21,6 +21,10 @@ elif [ -f /usr/share/vim/vim80/macros/less.sh ]
 then alias vless=/usr/share/vim/vim80/macros/less.sh
 fi
 
+if ! command -v octave >/dev/null && command -v docker >/dev/null
+then alias octave='docker-shell franklinyu/octave'
+fi
+
 if [ "`uname`" = Darwin ]
 then alias cp='cp -v' ln='ln -v' mv='mv -v' rm='rm -v'
 else alias cp='cp --verbose' ln='ln --verbose' mv='mv --verbose' rm='rm --verbose'
