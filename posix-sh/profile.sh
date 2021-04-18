@@ -18,6 +18,7 @@ export ANT_OPTS="-Dant.logger.defaults=$HOME/.config/java/ant-colors"
 #--------------#
 
 export GNUPGHOME=~/.local/share/gnupg
+export GOPATH=~/.local/share/go
 export IRBRC=~/.config/irb/irbrc
 export PYTHONDONTWRITEBYTECODE=true
 export RLWRAP_HOME=~/.local/share/rlwrap
