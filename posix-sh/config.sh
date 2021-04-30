@@ -5,6 +5,12 @@ alias ping='ping -c 10'
 alias pu=pushd po=popd d='dirs -v'
 alias grep='grep --color'
 
+# When the “LESS” environment variable is unset, Git sets it to FRX;
+# https://git-scm.com/docs/git-config/2.31.1#Documentation/git-config.txt-corepager
+# Therefore, an alias is used instead of setting the environment variable, to
+# make use of this default setting.
+alias less='less --LINE-NUMBERS --LONG-PROMPT'
+
 if command -v lsb_release >/dev/null && [ "`lsb_release --id --short`" = Debian ]
 then alias fd=fdfind bat=batcat
 fi
