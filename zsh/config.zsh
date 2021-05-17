@@ -25,12 +25,12 @@ source ~/.config/zsh/report-completion.zsh
 # https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables
 function () {
 	declare -A mappings=(
-		[md]='%F{cyan}' # start of bold
-		[me]='%f' # end of bold
-		[us]='%F{green}%U' # start of underline
-		[ue]='%f%u' # end of underline
-		[so]='%F{black}%K{yellow}' # start of standout
-		[se]='%f%k' # end of standout
+		md '%F{cyan}' # start of bold
+		me '%f' # end of bold
+		us '%F{green}%U' # start of underline
+		ue '%f%u' # end of underline
+		so '%F{black}%K{yellow}' # start of standout
+		se '%f%k' # end of standout
 	)
 
 	local env_vars=() termcap terminfo
