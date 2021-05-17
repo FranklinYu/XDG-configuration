@@ -44,6 +44,7 @@ ensure_link ~/.config/editline/editrc ~/.editrc
 ensure_link ~/.config/posix-sh/profile.sh ~/.profile
 ensure_link ~/.config/readline/inputrc ~/.inputrc
 ensure_link ~/.config/rspec ~/.rspec
+ensure_link ~/.config/sqliterc ~/.sqliterc
 ensure_link ~/.config/ssh/ssh_config ~/.ssh/config
 ensure_link ~/.config/tmux/tmux.conf ~/.tmux.conf
 ensure_link ~/.config/vim/config.vim ~/.vimrc
