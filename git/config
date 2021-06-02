@@ -8,7 +8,9 @@
 	ap = a --patch
 	b = branch
 	c = commit --verbose
+	c- = c --amend
 	ca = c --all
+	ca- = ca --amend
 	co = checkout
 	d = diff
 	dm = d --find-renames
@@ -18,6 +20,8 @@
 	m = merge
 	p = push
 	r = remote
+	re = restore
+	sh = show
 	st = status
 	sw = switch
 [pull]
