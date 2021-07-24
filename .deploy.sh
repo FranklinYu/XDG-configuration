@@ -54,6 +54,7 @@ ensure_link ~/.config/zsh/profile.zsh ~/.zprofile
 
 mkdir -p ~/.local/bin
 ensure_link ~/.config/.executables/ping-me ~/.local/bin/ping-me
+ensure_link ~/.config/.executables/port-info ~/.local/bin/port-info
 
 mkdir -p ~/.cache
 cd ~/.cache

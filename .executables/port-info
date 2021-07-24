@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -o nounset -o pipefail
+
+function print-field() {
+	# No idea why MacPorts chose 21 as width
+	printf '%-21s %s\n' "$1:" "$2"
+}
+
+port info "$@"
+return_value=$?
+if (( return_value == 0 )) && (( $# == 1 )) && [[ `port file "$1"` == */rsync.macports.org/* ]]
+then
+	print-field 'Port URL' "https://ports.macports.org/port/$1/details/"
+	if command -v curl >/dev/null
+	then
+		package_url="https://packages.macports.org/$1/"
+		if curl --head --fail --silent "$package_url" >/dev/null
+		then print-field 'Binary Package' "$package_url"
+		else print-field 'Binary Package' no
+		fi
+	fi
+fi
+exit $return_value
