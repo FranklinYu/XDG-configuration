@@ -2,7 +2,7 @@ if [[ -f ~/.config/posix-sh/config.sh ]]
 then emulate sh -c 'source ~/.config/posix-sh/config.sh'
 fi
 
-PROMPT='%F{blue}%~%f %(?..%F{red}%B%?%b%f )%# '
+PROMPT='%F{blue}%~%f %# '
 REPORTTIME=10
 WORDCHARS=${WORDCHARS/\/}
 WORDCHARS=${WORDCHARS/=}
@@ -18,7 +18,9 @@ bindkey -M isearch '\e[6~' history-incremental-search-forward # PgDn
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
 
-setopt hist_ignore_dups hist_ignore_space inc_append_history
+setopt extended_history \
+	hist_ignore_dups hist_ignore_space hist_no_store hist_reduce_blanks \
+	inc_append_history_time list_packed numeric_glob_sort print_exit_value
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
