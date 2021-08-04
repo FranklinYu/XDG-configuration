@@ -2,7 +2,7 @@ if [[ -f ~/.config/posix-sh/config.sh ]]
 then emulate sh -c 'source ~/.config/posix-sh/config.sh'
 fi
 
-PROMPT='%F{blue}%~%f %# '
+PROMPT='%F{blue}%~%f %#'
 REPORTTIME=10
 WORDCHARS=${WORDCHARS/\/}
 WORDCHARS=${WORDCHARS/=}
