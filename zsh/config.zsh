@@ -20,8 +20,7 @@ zstyle ':completion:*' cache-path ~/.cache/zsh
 
 setopt extended_history \
 	hist_ignore_dups hist_ignore_space hist_no_store hist_reduce_blanks \
-	inc_append_history_time list_packed numeric_glob_sort print_exit_value \
-	warn_create_global warn_nested_var
+	inc_append_history_time list_packed numeric_glob_sort print_exit_value
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
