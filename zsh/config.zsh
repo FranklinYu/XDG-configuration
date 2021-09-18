@@ -18,9 +18,10 @@ bindkey -M isearch '\e[6~' history-incremental-search-forward # PgDn
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
 
-setopt extended_history \
+setopt correct extended_history \
 	hist_ignore_dups hist_ignore_space hist_no_store hist_reduce_blanks \
-	inc_append_history_time list_packed numeric_glob_sort print_exit_value
+	inc_append_history_time list_packed magic_equal_subst numeric_glob_sort \
+	print_exit_value
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
