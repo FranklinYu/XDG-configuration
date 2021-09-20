@@ -1,1 +1,19 @@
 Pry.config.history_file = "~/.cache/pry/history"
+
+Pry::Prompt.add(
+  :colored, 'Colored version of :default.'
+) do |context, nesting, pry_instance, sep|
+  text = format(
+    "%<name>s(%<context>s)%<nesting>s%<separator>s",
+    name: pry_instance.config.prompt_name,
+    context: Pry.view_clip(context),
+    nesting: (nesting > 0 ? ":#{nesting}" : ''),
+    separator: sep
+  )
+  if pry_instance.config.color
+    text = Pry::Helpers::Text.magenta(text)
+  end
+  "[#{pry_instance.input_ring.count}] #{text} "
+end
+
+Pry.config.prompt = Pry::Prompt[:colored]
