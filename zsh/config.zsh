@@ -17,6 +17,7 @@ bindkey -M isearch '\e[6~' history-incremental-search-forward # PgDn
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
+zstyle ':completion:*' menu select
 
 setopt correct extended_history \
 	hist_ignore_dups hist_ignore_space hist_no_store hist_reduce_blanks \
