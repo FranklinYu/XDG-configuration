@@ -1,5 +1,31 @@
-#!/usr/bin/osascript
+#!/bin/zsh
 
-on run argv
-	tell application "Finder" to delete item 1 of argv as POSIX file
-end run
+set -o errexit -o nounset -o pipefail
+readonly COMMAND=${0:t}  # only keep the Tail segment
+
+function main() {
+	if (( $# == 0 )) || [[ $# == 1 && $1 == (-h|--help) ]]
+	then
+		echo "Usage: $COMMAND <file>..."
+		return
+	fi
+
+	local arg
+	for arg
+	do
+		if [[ -f $arg || -d $arg ]]
+		then
+			echo "Info: Trying to trash $arg"
+
+			# ${arg:a} resolves the Absolute path (logically)
+			osascript <<- EOF
+				on run argv
+					tell application "Finder" to delete "${arg:a}" as POSIX file
+				end run
+			EOF
+		else echo "Warning: not a directory or regular file, skipping: $arg"
+		fi
+	done
+}
+
+main $@
