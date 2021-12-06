@@ -22,22 +22,32 @@ fi
 #
 # Argument order is the same as ln(1).
 ensure_link() {
-	if ! [ -e "$2" ] # no such file yet
+	if [ -h "$2" ]  # symbolic link exists
 	then
-		ln -s "$1" "$2"
-		echo "$2 created"
-	elif [ -h "$2" ] # symbolic link exists
-	then
-		link_target=`readlink $2`
+		link_target=`readlink "$2"`
 		if [ "$link_target" = "$1" ]
 		then
 			if [ -t 0 ]
 			then printf '\e[30;1m%s verified\e[0m\n' "$2"
 			else echo "$2 verified"
 			fi
+		elif [ -t 0 ]
+		then
+			echo "Warning: [$2] currently points to [$link_target]."
+			echo "Redirect it to [$1]?"
+			local line
+			read -p '[y/yes] for Yes (default), [s/skip] for Skip; anything else aborts: ' line
+			case ":$line" in
+			(:|:y|:yes) ln -f -s -v "$1" "$2";;
+			(:s|:skip)
+				echo "[$2] skipped"
+				return
+				;;
+			(*) return_error_with_message "Abort before overwriting [$2]";;
+			esac
 		else return_error_with_message "[$2] points to [$link_target]"
 		fi
-	else return_error_with_message "trying to overwrite [$2]"
+	else ln -s -v "$1" "$2"  # aborts if $2 exists
 	fi
 }
 
