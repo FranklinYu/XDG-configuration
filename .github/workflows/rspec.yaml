@@ -9,12 +9,12 @@ on:
 jobs:
   test:
     runs-on: macos-11
-	defaults:
-	  run:
-	  	working-directory: .meta/
+    defaults:
+      run:
+        working-directory: .meta/
     steps:
       - uses: actions/checkout@v2
-	  	working-directory: ./
+        working-directory: ./
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
       - name: Install dependencies

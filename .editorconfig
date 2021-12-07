@@ -5,3 +5,7 @@ indent_size = 4
 [{pry/pryrc,irb/irbrc,.meta/libexec/ping-me,**.rb}]
 indent_style = space
 indent_size = 2
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
