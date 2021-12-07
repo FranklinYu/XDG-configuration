@@ -1,5 +1,7 @@
 # configurations
 
+[![Ruby](https://github.com/FranklinYu/XDG-configuration/actions/workflows/rspec.yaml/badge.svg)](https://github.com/FranklinYu/XDG-configuration/actions/workflows/rspec.yaml)
+
 Place this folder at `~/.config`.
 
 Some of the Git aliases only work in Git 2.20 or above;
