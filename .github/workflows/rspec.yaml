@@ -1,0 +1,23 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: macos-11
+	defaults:
+	  run:
+	  	working-directory: .meta/
+    steps:
+      - uses: actions/checkout@v2
+	  	working-directory: ./
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rspec
