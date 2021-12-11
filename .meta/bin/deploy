@@ -65,8 +65,8 @@ ensure_link ~/.config/zsh/newuser-install.zsh ~/.zshrc
 ensure_link ~/.config/zsh/profile.zsh ~/.zprofile
 
 mkdir -p ~/.local/bin
-ensure_link ~/.config/.meta/bin/ping-me ~/.local/bin/ping-me
-ensure_link ~/.config/.meta/bin/port-info ~/.local/bin/port-info
+ensure_link ~/.config/.meta/libexec/ping-me ~/.local/bin/ping-me
+ensure_link ~/.config/.meta/libexec/port-info ~/.local/bin/port-info
 
 mkdir -p ~/.cache
 cd ~/.cache
