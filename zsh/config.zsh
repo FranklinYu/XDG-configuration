@@ -103,7 +103,8 @@ then
 	add-zsh-hook precmd __set-status-bar
 fi
 
-source-from-share zsh-autosuggestions/zsh-autosuggestions.zsh
+source-from-share zsh-autosuggestions/zsh-autosuggestions.zsh ||
+	source-from-share zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 function () {
 	local preview_command
@@ -134,5 +135,6 @@ function () {
 }
 
 2>/dev/null source ~/.config/zsh/local-config.zsh
-source-from-share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source-from-share zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ||
+	source-from-share zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 unfunction source-from-share source-maybe
