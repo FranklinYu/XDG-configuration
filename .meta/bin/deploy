@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Parameters (passed as environment variables):
-#   NO_RIME: if non-empty, skip synchronization of Rime schemas
+#   SYNC_RIME: if non-empty, synchronize Rime schemas
 
 set -o errexit -o nounset
 
@@ -76,9 +76,9 @@ mkdir -p ~/.local/share
 cd ~/.local/share
 mkdir -p gnupg rlwrap cargo vagrant
 
-if [ -n "${NO_RIME:-}" ]
-then echo 'Rime skipped'
-else ~/.config/ibus/rime/plum/rime-install jyutping felixonmars/fcitx5-pinyin-zhwiki
+if [ -n "${SYNC_RIME:-}" ]
+then ~/.config/ibus/rime/plum/rime-install jyutping felixonmars/fcitx5-pinyin-zhwiki
+else echo 'Rime skipped'
 fi
 
 if [ `uname -s` = Darwin ]
