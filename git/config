@@ -22,7 +22,10 @@
 	p = push
 	r = remote
 	re = restore
+	rst = reset
 	sh = show
+	sm = submodule
+	ss = stash
 	st = status
 	sw = switch
 [pull]
