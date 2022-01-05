@@ -11,20 +11,15 @@ alias grep='grep --color'
 # make use of this default setting.
 alias less='less --LINE-NUMBERS --LONG-PROMPT'
 
+# Trigger the Pathname Expansion with a subshell, matching Vim 8.x.
+alias vless=$(echo /usr/share/vim/vim8?/macros/less.sh)
+
 if command -v lsb_release >/dev/null && [ "`lsb_release --id --short`" = Debian ]
 then alias fd=fdfind bat=batcat
 fi
 
 if command -v bat >/dev/null
 then alias cat='bat --style=plain'
-fi
-
-if [ -f /usr/share/vim/vim82/macros/less.sh ]
-then alias vless=/usr/share/vim/vim82/macros/less.sh
-elif [ -f /usr/share/vim/vim81/macros/less.sh ]
-then alias vless=/usr/share/vim/vim81/macros/less.sh
-elif [ -f /usr/share/vim/vim80/macros/less.sh ]
-then alias vless=/usr/share/vim/vim80/macros/less.sh
 fi
 
 if ! command -v octave >/dev/null && command -v docker >/dev/null
