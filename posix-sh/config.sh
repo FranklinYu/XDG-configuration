@@ -27,8 +27,15 @@ then alias octave='docker-shell franklinyu/octave'
 fi
 
 if [ "`uname`" = Darwin ]
-then alias cp='cp -v' ln='ln -v' mv='mv -v' rm='rm -v' chown='chown -v' chmod='chmod -vv'
-else alias cp='cp --verbose' ln='ln --verbose' mv='mv --verbose' rm='rm --verbose' chown='chown --verbose' chmod='chmod --verbose'
+then
+	alias cp='cp -v' mv='mv -v' rm='rm -v'
+	alias ln='ln -v' mkdir='mkdir -v'
+	alias chown='chown -v' chmod='chmod -vv'
+	alias ps='ps -T'
+else
+	alias cp='cp --verbose' mv='mv --verbose' rm='rm --verbose'
+	alias ln='ln --verbose' mkdir='mkdir --verbose'
+	alias chown='chown --verbose' chmod='chmod --verbose'
 fi
 
 # https://unix.stackexchange.com/questions/623725/does-posix-specify-whether-to-continue-script-when-nested-dot-fails
