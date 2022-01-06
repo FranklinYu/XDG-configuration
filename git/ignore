@@ -1,4 +1,8 @@
 .bundle/
 venv/
 
+# macOS
 .DS_Store
+
+# gEdit
+*~
