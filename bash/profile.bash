@@ -1,7 +1,7 @@
-if [ -f ~/.profile ]
+if [[ -f ~/.profile ]]
 then source ~/.profile
 fi
 
-if [[ $- == *i* ]] && [ -f ~/.bashrc ]
+if [[ $- == *i* ]] && [[ -f ~/.bashrc ]]
 then source ~/.bashrc
 fi
