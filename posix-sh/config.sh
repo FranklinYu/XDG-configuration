@@ -15,10 +15,12 @@ alias less='less --LINE-NUMBERS --LONG-PROMPT'
 alias vless=$(echo /usr/share/vim/vim8?/macros/less.sh)
 
 if command -v lsb_release >/dev/null && [ "`lsb_release --id --short`" = Debian ]
-then alias fd=fdfind bat=batcat
-fi
-
-if command -v bat >/dev/null
+then
+	alias fd=fdfind
+	if command -v batcat >/dev/null
+	then alias bat=batcat cat='bat --style=plain'
+	fi
+elif command -v bat >/dev/null
 then alias cat='bat --style=plain'
 fi
 
