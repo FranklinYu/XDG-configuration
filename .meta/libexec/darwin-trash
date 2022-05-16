@@ -19,9 +19,7 @@ function main() {
 
 			# ${arg:a} resolves the Absolute path (logically)
 			osascript <<- EOF
-				on run argv
-					tell application "Finder" to delete "${arg:a}" as POSIX file
-				end run
+				tell application "Finder" to delete "${arg:a}" as POSIX file
 			EOF
 		else echo "Warning: not a directory or regular file, skipping: $arg"
 		fi
