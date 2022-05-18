@@ -9,6 +9,10 @@
 set -o errexit -o nounset -o pipefail
 readonly COMMAND=${0:t}  # only keep the Tail segment
 
+function log-notice() {
+	logger "darwin-trash ($$) Notice: $*"
+}
+
 function main() {
 	if (( $# == 0 )) || [[ $# == 1 && $1 == (-h|--help) ]]
 	then
@@ -21,13 +25,14 @@ function main() {
 	do
 		if [[ -f $arg || -d $arg ]]
 		then
-			echo "Info: Trying to trash $arg"
+			log-notice "Trying to trash file: $arg"
 
 			# ${arg:a} resolves the Absolute path (logically)
 			osascript <<- EOF
 				tell application "Finder" to delete "${arg:a}" as POSIX file
 			EOF
-		else echo "Warning: not a directory or regular file, skipping: $arg"
+			log-notice "File trashed: $arg"
+		else logger -s -p user.warning "darwin-trash ($$) Warning: not a directory or regular file, skipping: $arg"
 		fi
 	done
 }
