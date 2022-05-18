@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+# This tool is so that I don’t need a 400-line shell script [1] or a 2k-line
+# Objective-C program [2].
+#
+# [1]: https://github.com/morgant/tools-osx/blob/71c2db389c48cee8d03931eeb083cfc68158f7ed/src/trash
+# [2]: https://github.com/ali-rantakari/trash
+
 set -o errexit -o nounset -o pipefail
 readonly COMMAND=${0:t}  # only keep the Tail segment
 
