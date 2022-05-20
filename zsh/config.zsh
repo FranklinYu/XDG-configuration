@@ -66,6 +66,10 @@ function () {
 	fi
 }
 
+function set-terminal-title() {
+	printf '\e]2;%s\a' "$*"
+}
+
 # [deprecated]
 function source-maybe() {
 	2>/dev/null source $1
