@@ -1,9 +1,6 @@
-alias g=git
-alias be='bundle exec'
+alias be='bundle exec' g=git grep='grep --color' ping='ping -c 10'
 alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
-alias ping='ping -c 10'
 alias pu=pushd po=popd d='dirs -v'
-alias grep='grep --color'
 
 # When the “LESS” environment variable is unset, Git sets it to FRX;
 # https://git-scm.com/docs/git-config/2.31.1#Documentation/git-config.txt-corepager
