@@ -1,5 +1,7 @@
 alias be='bundle exec' g=git grep='grep --color' ping='ping -c 10'
 alias docker-shell='docker run --rm --interactive --tty --volume "$PWD:/docker"'
+
+# aliases related to the directory stack
 alias pu=pushd po=popd d='dirs -v'
 
 # When the “LESS” environment variable is unset, Git sets it to FRX;
