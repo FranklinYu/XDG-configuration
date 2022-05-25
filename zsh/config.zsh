@@ -67,7 +67,7 @@ function () {
 }
 
 function set-terminal-title() {
-	printf '\e]2;%s\a' "$*"
+	printf '\e]0;%s\a' "$*"
 }
 
 # [deprecated]
