@@ -19,10 +19,13 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
 zstyle ':completion:*' menu select
 
-setopt correct extended_history \
-	hist_ignore_dups hist_ignore_space hist_no_store hist_reduce_blanks \
-	inc_append_history_time list_packed magic_equal_subst numeric_glob_sort \
-	print_exit_value
+# history-related options
+setopt extended_history inc_append_history_time
+setopt hist_ignore_dups hist_ignore_space hist_no_store hist_reduce_blanks
+
+# other options
+setopt correct list_packed magic_equal_subst numeric_glob_sort print_exit_value
+
 autoload -Uz add-zsh-hook
 source ~/.config/zsh/report-completion.zsh
 
