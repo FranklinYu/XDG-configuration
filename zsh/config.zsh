@@ -73,6 +73,18 @@ function set-terminal-title() {
 	printf '\e]0;%s\a' "$*"
 }
 
+# When something happens to the connection, tmux/screen doesn’t have a chance to
+# clean up the terminal title. OpenSSH regards such a case as “an error
+# occurred”, and exits with 255.
+# https://manpages.debian.org/bullseye/openssh-client/ssh.1.en.html#EXIT_STATUS
+function FranklinYu::recover-terminal-title() {
+	local last_command_str=$history[$((HISTCMD-1))]
+	if [[ ${${(z)last_command_str}[1]} == 'ssh' ]] && (( status == 255 ))
+	then set-terminal-title
+	fi
+}
+add-zsh-hook precmd FranklinYu::recover-terminal-title
+
 # [deprecated]
 function source-maybe() {
 	2>/dev/null source $1
