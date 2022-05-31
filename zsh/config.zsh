@@ -101,13 +101,13 @@ source-from-share nvm/nvm.sh
 if 2>/dev/null source /Applications/MacPorts/iTerm2.app/Contents/Resources/iterm2_shell_integration.zsh ||
 	2>/dev/null source /Applications/iTerm.app/Contents/Resources/iterm2_shell_integration.zsh
 then
-	function __set-status-bar() {
+	function FranklinYu::set-status-bar() {
 		iterm2_set_user_var ruby_version ${RUBY_VERSION:-system}
 		if command -v nvm >/dev/null
 		then iterm2_set_user_var node_version `nvm version`
 		fi
 	}
-	add-zsh-hook precmd __set-status-bar
+	add-zsh-hook precmd FranklinYu::set-status-bar
 fi
 
 source-from-share zsh-autosuggestions/zsh-autosuggestions.zsh ||
