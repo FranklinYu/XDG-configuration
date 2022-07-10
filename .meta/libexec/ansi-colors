@@ -1,0 +1,30 @@
+#!/usr/bin/ruby
+
+BACKGROUND_COLORS = (40..47).to_a + (100..107).to_a
+
+def print_grid(prefix: '')
+  print ' -- '
+  BACKGROUND_COLORS.each { |bg| print "\e[#{prefix}#{bg}m #{bg}    " }
+  puts
+
+  ((30..37).to_a + (90..97).to_a).each do |fg|
+    print "\e[#{prefix}#{fg}m #{fg} "
+    BACKGROUND_COLORS.each { |bg| print "\e[#{prefix}#{bg};#{fg}m #{bg};#{fg} "}
+    puts
+  end
+end
+
+def main
+  print "\e[30m black \e[31m red \e[32m green \e[33m yellow "  # trailing space
+  print "\e[34m blue \e[35m magenta \e[36m cyan \e[37m white"
+  puts
+
+  print_grid
+
+  puts 'Bold:'
+  print_grid(prefix: '1;')
+end
+
+if __FILE__ == $PROGRAM_NAME
+  main
+end
