@@ -2,15 +2,19 @@
 
 BACKGROUND_COLORS = (40..47).to_a + (100..107).to_a
 
+def end_line
+  puts "\e[0m"
+end
+
 def print_grid(prefix: '')
   print ' -- '
   BACKGROUND_COLORS.each { |bg| print "\e[#{prefix}#{bg}m #{bg}    " }
-  puts
+  end_line
 
   ((30..37).to_a + (90..97).to_a).each do |fg|
     print "\e[#{prefix}#{fg}m #{fg} "
     BACKGROUND_COLORS.each { |bg| print "\e[#{prefix}#{bg};#{fg}m #{bg};#{fg} "}
-    puts
+    end_line
   end
 end
 
