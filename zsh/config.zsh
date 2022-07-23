@@ -78,11 +78,13 @@ function set-terminal-title() {
 # occurred”, and exits with 255.
 # https://manpages.debian.org/bullseye/openssh-client/ssh.1.en.html#EXIT_STATUS
 function FranklinYu::recover-terminal-title() {
-	local last_command_str=$history[$((HISTCMD-1))]
-	if [[ ${${(z)last_command_str}[1]} == 'ssh' ]] && (( status == 255 ))
+	local cmd_status=$status last_command_str=$history[$((HISTCMD-1))]
+	local last_exec=${${(Az)last_command_str}[1]}
+	if (( FranklinYu_ssh_commands[(Ie)$last_exec] )) && (( cmd_status == 255 ))
 	then set-terminal-title
 	fi
 }
+FranklinYu_ssh_commands=(ssh)
 add-zsh-hook precmd FranklinYu::recover-terminal-title
 
 # [deprecated]
