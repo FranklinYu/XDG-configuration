@@ -1,10 +1,6 @@
 [core]
 	editor = vim
-[user]
-	name = Franklin Yu
-	email = franklinyu@google.com
-[push]
-	default = simple
+
 [alias]
 	a = add
 	ap = a --patch
@@ -30,5 +26,11 @@
 	sw = switch
 [pull]
 	ff = only
+[push]
+	default = simple
+[user]
+	name = Franklin Yu
+	email = franklinyu@google.com
+
 [include]
 	path = local-config
