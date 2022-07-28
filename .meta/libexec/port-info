@@ -1,24 +1,68 @@
-#!/bin/bash
+#!/usr/bin/ruby
 
-set -o nounset -o pipefail
+require 'English'
+require 'net/https'
+require 'yaml'
 
-function print-field() {
-	# No idea why MacPorts chose 21 as width
-	printf '%-21s %s\n' "$1:" "$2"
-}
+def print_field(key, value)
+  printf("%-21s %s\n", key, value)
+end
 
-port info "$@"
-return_value=$?
-if (( return_value == 0 )) && (( $# == 1 )) && [[ `port file "$1"` == */rsync.macports.org/* ]]
-then
-	print-field 'Port URL' "https://ports.macports.org/port/$1/details/"
-	if command -v curl >/dev/null
-	then
-		package_url="https://packages.macports.org/$1/"
-		if curl --head --fail --silent "$package_url" >/dev/null
-		then print-field 'Binary Package' "$package_url"
-		else print-field 'Binary Package' no
-		fi
-	fi
-fi
-exit $return_value
+OS_VERSION = `uname -r`.split('.')[0]
+
+Port = Struct.new(:name) do
+  def set_version(str)
+    @variants = str.delete_prefix!("#{name} @").slice!(/\+.+/)
+    str
+  end
+
+  def file_names
+    output = `port info --fullname --revision #{name}`
+    hash = YAML.safe_load(output, symbolize_names: true)
+    version, revision = set_version(hash[:fullname]), hash[:revision]
+
+    base = "#{name}-#{version}_#{revision}#{@variants}.darwin_#{OS_VERSION}"
+    %w[x86_64 noarch].map { |arch| "#{base}.#{arch}.tbz2" }
+  end
+
+  def has_package?(http)
+    file_names.any? do |file_name|
+      http.request_head("/#{name}/#{file_name}").is_a?(Net::HTTPSuccess)
+    end
+  end
+
+  def print_package
+    value = Net::HTTP.start(
+        'packages.macports.org', 443, use_ssl: true) do |http|
+      if has_package?(http)
+        'yes'
+      elsif http.request_head("/#{name}/").is_a?(Net::HTTPSuccess)
+        "(partial) https://packages.macports.org/#{name}/"
+      else
+        'no'
+      end
+    end
+    print_field('Package URL:', value)
+  end
+
+  def print_info_url
+    print_field('Port URL:', "https://ports.macports.org/port/#{name}/details/")
+  end
+end
+
+
+raise 'Expect at least one argument.' if ARGV.empty?
+
+system('port', 'info', *ARGV)
+# skip the case of multiple ports, or invalid arguments
+exit($CHILD_STATUS.exitstatus) if ARGV.size != 1 || !$CHILD_STATUS.success?
+
+port_name = ARGV[0]
+unless `port file "#{port_name}"`.include?('/rsync.macports.org/')
+  # skip local ports
+  exit
+end
+
+port = Port.new(port_name)
+port.print_info_url
+port.print_package
