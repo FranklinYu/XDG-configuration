@@ -20,7 +20,7 @@ end
 
 def main
   print "\e[30m black \e[31m red \e[32m green \e[33m yellow "  # trailing space
-  print "\e[34m blue \e[35m magenta \e[36m cyan \e[37m white"
+  print "\e[34m blue \e[35m magenta \e[36m cyan \e[37m white \e[0m"
   puts
 
   print_grid
