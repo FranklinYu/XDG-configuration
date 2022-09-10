@@ -16,11 +16,10 @@
 	l = pull
 	m = merge
 	p = push
-	r = remote
+	r = remote --verbose
 	re = restore
 	rst = reset
 	sh = show
-	sm = submodule
 	ss = stash
 	st = status
 	sw = switch
